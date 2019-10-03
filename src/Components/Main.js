@@ -22,14 +22,20 @@ export default class Main extends Component {
 
                 <section className="SecondLayer">
                     <div className="three_Icons">
-                        <img alt="paw" src={dogBone}></img>
-                        <img alt="community building" src={community}></img>
-                        <img alt="map" src={map}></img>
-                    </div>
-                    <div className="three_text">
-                        <p>Lost your puppy, you came to the right place. Get started by clicking on the bone!</p>
-                        <p>Dont have a puppy or maybe found one, click the community icon to find out more.</p>
-                        <p>Check the map to see if any puppies are wondering near you.</p>
+                        <div>
+                            <img alt="paw" src={dogBone}></img>
+                            <p>Lost your puppy, you came to the right place. 
+                            Get started by clicking on the bone!</p>
+                        </div>
+                        <div>
+                            <img alt="community building" src={community}></img>
+                            <p>Dont have a puppy or maybe found one, click the 
+                            community icon to find out more.</p>
+                        </div>
+                        <div>
+                            <img alt="map" src={map}></img>
+                            <p>Check the map to see if any puppies are wondering near you.</p>
+                        </div>
                     </div>
                 </section>
 
@@ -44,16 +50,16 @@ export default class Main extends Component {
                             <div className="lostDogCard">
                                 <img alt="puppy" src="https://images.unsplash.com/photo-1523626797181-8c5ae80d40c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></img>
                             </div>
-                            <div className="lostDogCard">
-                            <img alt="puppy" src="https://images.unsplash.com/photo-1491604612772-6853927639ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></img>
+                            <div className="lostDogCard mobile">
+                                <img alt="puppy" src="https://images.unsplash.com/photo-1491604612772-6853927639ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></img>
                             </div>
                         </div>
                         <div className="Main_lostDogs Row2">
-                            <div className="lostDogCard">
+                            <div className="lostDogCard mobile">
                                 <img alt="puppy" src="https://images.unsplash.com/photo-1504826260979-242151ee45b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"></img>
                             </div>
                             <div className="lostDogCard">
-                            <img alt="puppy" src="https://images.unsplash.com/photo-1558788353-f76d92427f16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></img>
+                                <img alt="puppy" src="https://images.unsplash.com/photo-1558788353-f76d92427f16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></img>
                             </div>
                         </div>
                     </div>
