@@ -318,21 +318,34 @@ footer {
 
 /* JUST FOR IPAD */
 
-@media screen and (width: 1024px) {
+@media screen and (min-width: 769px) and (max-width: 1240px) {
+    .banner h2 {
+        margin-top: 250px;
+    }
+
     .ThirdLayer h2 {
-        font-size: 3rem;
+        width: 50%;
+        font-size: 2rem;
+        text-align: center;
     }
 
     .ThirdLayer p {
-        margin-left: 5px;
+        margin-left: 5%;
+        width: 40%;
+        margin-top: 20px;
     }
 
     .Main_lostDogs {
-        margin-top: 125px;
+        margin-top: 175px;
         height: 200px;
     }
 
     .Row2 {
         margin-top: 25px;
+    }
+
+    .Main_lostDogs div {
+        width: 150px;
+        height: 150px;
     }
 }
