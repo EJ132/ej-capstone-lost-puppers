@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import '../Stylesheets/Navbar.css'
-import paw from '../Images/paw.png'
+import React, { Component } from 'react';
+import '../Stylesheets/Navbar.css';
+import paw from '../Images/paw.png';
 
 export default class Navbar extends Component {
     render () {

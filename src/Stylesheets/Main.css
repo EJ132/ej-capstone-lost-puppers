@@ -2,8 +2,10 @@
 
 .banner {
     display: flex;
-    background-image: url("https://images.unsplash.com/photo-1507146426996-ef05306b995a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80"); 
-    background-repeat: no-repeat;
+    background: 
+    url("https://images.unsplash.com/photo-1507146426996-ef05306b995a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80") 
+    no-repeat
+    fixed;
     position: relative;
     width: 100%;
     height: 800px;
@@ -97,5 +99,110 @@ footer {
     color: white;
     text-align: center;
     height: 25px;
+}
+
+@media screen and (min-width: 768px) {
+    /* FIRST SECTION DESIGN */
+
+.banner {
+    display: flex;
+    background: 
+    url("https://images.unsplash.com/photo-1507146426996-ef05306b995a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80") 
+    no-repeat
+    fixed;
+    position: relative;
+    width: 100%;
+    height: 800px;
+    padding: 20px;
+    color: white;
+}
+
+.Overlay {
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.banner h2 {
+    font-size: 7rem;
+    margin-left: 100px;
+    margin-top: 100px;
+}
+
+.banner p {
+    font-size: 2rem;
+    margin-left: 150px;
+}
+
+.banner button {
+    width: 200px;
+    height: 75px;
+    background-color: #FFD4B5;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 10px;
+    margin-top: 25px;
+    margin-left: 250px;
+    transition: all 0.9s;
+    border: none;
+}
+
+.banner button:hover {
+    cursor: pointer;
+    background-color: #B37F5B; 
+    color: white;
+}
+
+
+/* SECOND SECTION DESIGN */
+
+.SecondLayer {
+    height: 500px;
+    color: white;
+    padding: 20px;
+}
+
+.three_Icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: center;
+    padding: 20px;
+}
+
+.three_Icons img {
+    padding: 10px;
+    width: 210px;
+    height: 210px;
+}
+
+.three_text {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.three_text p {
+    font-size: 1.2rem;
+    padding: 10px;
+    width: 210px;
+    height: 210px;
+}
+
+
+/* FOOTER */
+
+footer {
+    width: 100%;
+    color: white;
+    text-align: center;
+    height: 25px;
+}
 }
 
