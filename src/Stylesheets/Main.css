@@ -184,7 +184,7 @@ footer {
     center
     center
     fixed;
-    background-size: cover;
+    background-size: auto;
     height: 95vh;
 }
 
