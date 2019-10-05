@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "browser-router": "^0.2.0",
+    "netlify-cli": "^2.15.0",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
     "react-router-dom": "^5.1.2",
