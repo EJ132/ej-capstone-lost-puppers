@@ -5,6 +5,7 @@
     url("../Images/homebackground.jpg") 
     no-repeat
     fixed;
+    background-size: 2250px 1500px;
     position: relative;
     width: 100%;
     height: 95vh;
@@ -184,7 +185,7 @@ footer {
     center
     center
     fixed;
-    background-size: cover;
+    background-size: 1500px 1000px;
     height: 95vh;
 }
 
