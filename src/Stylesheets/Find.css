@@ -1,0 +1,21 @@
+.findContainer {
+    display: flex;
+    flex-direction: row;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.sidebar {
+    padding: 20px;
+    width: 20%;
+    height: 90vh;
+    background-color: rgb(192, 248, 108);
+    display: flex;
+}
+
+.lostdogs {
+    padding: 20px;
+    width: 80%;
+    height: 90vh;
+    color: white;
+}
