@@ -1,11 +1,10 @@
 import React from 'react';
 import './Stylesheets/App.css';
-import Navbar from './Components/Navbar'
 import Home from './Components/Main'
 import AboutUs from './Components/AboutUs'
 import Find from './Components/Find'
 import Login from './Components/Login'
-import {Route, Link} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 
 function App() {
   return (
