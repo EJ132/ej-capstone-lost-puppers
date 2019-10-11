@@ -4,9 +4,28 @@ import Navbar from './Navbar'
 import dogBone from '../Images/dogBone.png'
 import community from '../Images/community.png'
 import map from '../Images/map.png'
+import {Redirect} from "react-router-dom";
 
 export default class Main extends Component {
+
+    state = {
+        redirect: false
+    }
+
+    handleGetStarted = () => {
+        this.setState({
+            redirect: (!this.state.redirect)
+        })
+    }
+
     render() {
+
+        const { redirect } = this.state;
+
+        if (redirect) {
+            return <Redirect to='/login'/>;
+        }
+
         return (
             <div>
 
@@ -16,7 +35,7 @@ export default class Main extends Component {
                     <div className="Overlay">
                         <h2>Lost Puppers</h2>
                         <p>Find your lost puppy today...</p>
-                        <button>Get started</button>
+                        <button onClick={this.handleGetStarted}>Get started</button>
                     </div>
                 </section>
 
