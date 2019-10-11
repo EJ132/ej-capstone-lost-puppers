@@ -10,7 +10,7 @@ export default class Navbar extends Component {
                 <li><a href="/aboutus">About Us</a></li>
                 <li><a href="/find">Find a Pupper</a></li>
                 <li><a href="/login">Login</a></li>
-                <img src={paw}></img>
+                <img alt="paw" src={paw}></img>
             </ul>
         )
     }
