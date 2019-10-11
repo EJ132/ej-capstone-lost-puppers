@@ -4,26 +4,32 @@ import Navbar from './Navbar'
 import dogBone from '../Images/dogBone.png'
 import community from '../Images/community.png'
 import map from '../Images/map.png'
-import {Redirect} from "react-router-dom";
+import {Redirect, Link} from "react-router-dom";
 
 export default class Main extends Component {
 
     state = {
-        redirect: false
+        redirect: false,
+        where: ''
     }
 
-    handleGetStarted = () => {
+    //redirects the page clicked on
+    switchPage = (link) => {
         this.setState({
-            redirect: (!this.state.redirect)
+            redirect: (!this.state.redirect),
+            where: link
         })
+
+        return;
     }
 
     render() {
 
-        const { redirect } = this.state;
+        const { redirect, where } = this.state;
 
+        //redirects the page to login
         if (redirect) {
-            return <Redirect to='/login'/>;
+         return <Redirect to={`/${where}`}/>
         }
 
         return (
@@ -35,24 +41,25 @@ export default class Main extends Component {
                     <div className="Overlay">
                         <h2>Lost Puppers</h2>
                         <p>Find your lost puppy today...</p>
-                        <button onClick={this.handleGetStarted}>Get started</button>
+                        <button onClick={() => this.switchPage('login')}>Get started</button>
                     </div>
                 </section>
 
                 <section className="SecondLayer">
                     <div className="three_Icons">
                         <div>
-                            <img alt="paw" src={dogBone}></img>
+                            <Link to='/login'><img alt="paw" src={dogBone}></img></Link>
                             <p>Lost your puppy, you came to the right place. 
                             Get started by clicking on the bone!</p>
                         </div>
                         <div>
-                            <img alt="community building" src={community}></img>
-                            <p>Dont have a puppy or maybe found one, click the 
-                            community icon to find out more.</p>
+                            <Link to='/aboutus'><img alt="community building" src={community}></img></Link>
+                            <p>Interest in how this site came to life or just
+                            want to explore more about the creator. Click on the
+                            racon above!</p>
                         </div>
                         <div>
-                            <img alt="map" src={map}></img>
+                            <Link to='/find'><img alt="map" src={map}></img></Link>
                             <p>Check the map to see if any puppies are wondering near you.</p>
                         </div>
                     </div>
