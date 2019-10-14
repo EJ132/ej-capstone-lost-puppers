@@ -16,6 +16,15 @@
 .lostdogs {
     padding: 20px;
     width: 80%;
-    height: 90vh;
     color: white;
+}
+
+.dogContainer {
+    width: 100%;
+    padding: 50px 10px 50px 10px;
+    background-color: aqua;
+    display: grid;
+    justify-content: space-around;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: 300px 300px;
 }
