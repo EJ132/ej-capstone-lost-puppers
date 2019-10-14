@@ -3,6 +3,8 @@ import '../Stylesheets/Main.css'
 import Navbar from './Navbar'
 import '../Stylesheets/Login.css'
 import paw from '../Images/paw.png'
+import {Link, Route} from 'react-router-dom'
+import Register from './Register'
 
 export default class Login extends Component {
 
@@ -27,14 +29,17 @@ export default class Login extends Component {
                 <Navbar />
 
                 <section className="loginBG">
-                    <form className="login" onSubmit={this.handleSubmitLogin}>
-                        <img src={paw} alt="paw"/>
-                        <label>Username</label>
-                        <input placeholder="puppy_lover132" name="user_name" type="user_name" required></input>
-                        <label>Password</label>
-                        <input placeholder="********" name="password" type="password" required></input>
-                        <button type="submit">SignIn</button>
-                    </form>
+                    <div>
+                        <form className="login" onSubmit={this.handleSubmitLogin}>
+                            <img src={paw} alt="paw"/>
+                            <label>Username</label>
+                            <input placeholder="puppy_lover132" name="user_name" type="user_name" required></input>
+                            <label>Password</label>
+                            <input placeholder="********" name="password" type="password" required></input>
+                            <button type="submit">SignIn</button>
+                        </form>
+                    <Link to="/register">Sign Up</Link>
+                    </div>
                 </section>
 
                 <footer>&#169; EJ Gonzalez 2019</footer>

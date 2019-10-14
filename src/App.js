@@ -4,6 +4,7 @@ import Home from './Components/Main'
 import AboutUs from './Components/AboutUs'
 import Find from './Components/Find'
 import Login from './Components/Login'
+import Register from './Components/Register'
 import {Route} from 'react-router-dom';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Route exact path='/aboutus' component={AboutUs}/>
       <Route exact path='/find' component={Find}/>
       <Route exact path='/login' component={Login}/>
+      <Route exact path='/register' component={Register} />
     </div>
   );
 }
