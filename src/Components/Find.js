@@ -2,75 +2,90 @@ import React, { Component } from 'react'
 import '../Stylesheets/Main.css'
 import Navbar from './Navbar'
 import '../Stylesheets/Find.css'
+import '../Stylesheets/DogTags.css'
 import DogTag from './LostDogs/Dogtag'
+import config from '../config'
 
 export default class Find extends Component {
 
     state = {
-        dogTags: [
-            { name:"Chico",
-            img:"https://images.unsplash.com/photo-1456318456940-4da16c8fc9bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
-            category:"Small",
-            description:"Brown dog very loving and likes squeky toys",
-            dateCreated:"January 23, 2020" },
-            { name:"Chico",
-            img:"https://images.unsplash.com/photo-1456318456940-4da16c8fc9bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
-            category:"Small",
-            description:"Brown dog very loving and likes squeky toys",
-            dateCreated:"January 23, 2020" },
-            { name:"Chico",
-            img:"https://images.unsplash.com/photo-1456318456940-4da16c8fc9bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
-            category:"Small",
-            description:"Brown dog very loving and likes squeky toys",
-            dateCreated:"January 23, 2020" },
-            { name:"Chico",
-            img:"https://images.unsplash.com/photo-1456318456940-4da16c8fc9bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
-            category:"Small",
-            description:"Brown dog very loving and likes squeky toys",
-            dateCreated:"January 23, 2020" },
-            { name:"Chico",
-            img:"https://images.unsplash.com/photo-1456318456940-4da16c8fc9bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
-            category:"Small",
-            description:"Brown dog very loving and likes squeky toys",
-            dateCreated:"January 23, 2020" },
-            { name:"Chico",
-            img:"https://images.unsplash.com/photo-1456318456940-4da16c8fc9bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
-            category:"Small",
-            description:"Brown dog very loving and likes squeky toys",
-            dateCreated:"January 23, 2020" },
-            { name:"Chico",
-            img:"https://images.unsplash.com/photo-1456318456940-4da16c8fc9bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
-            category:"Small",
-            description:"Brown dog very loving and likes squeky toys",
-            dateCreated:"January 23, 2020" },
-            { name:"Chico",
-            img:"https://images.unsplash.com/photo-1456318456940-4da16c8fc9bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
-            category:"Small",
-            description:"Brown dog very loving and likes squeky toys",
-            dateCreated:"January 23, 2020" },
-            { name:"Chico",
-            img:"https://images.unsplash.com/photo-1456318456940-4da16c8fc9bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
-            category:"Small",
-            description:"Brown dog very loving and likes squeky toys",
-            dateCreated:"January 23, 2020" },
-            { name:"Chico",
-            img:"https://images.unsplash.com/photo-1456318456940-4da16c8fc9bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
-            category:"Small",
-            description:"Brown dog very loving and likes squeky toys",
-            dateCreated:"January 23, 2020" },
-        ]
+        dogTags: [],
+        filter: null,
+        filter_name: '',
+        filter_zip: null,
+        filter_zipVal: ''
+    }
+
+    filterResults = ev => {
+
+        this.setState({
+            filter: true,
+            filter_name: ev.target.value
+        })
+
+        this.renderDogTags()
+
+    }
+
+    filterByZip = ev => {
+
+        this.setState({
+            filter_zip: true,
+            filter_zipVal: ev.target.value
+        })
+
+        this.renderDogTags()
+    }
+
+    clearFilter = () => {
+        this.setState({
+            filter: null,
+            filter_name: '',
+            filter_zip: null,
+            filter_zipVal: ''
+        })
+    }
+
+    componentDidMount() {
+        fetch(`${config.API_ENDPOINT}/pups`)
+        .then(res =>
+            (!res.ok)
+              ? res.json().then(e => Promise.reject(e))
+              : res.json()
+        )
+        .then(resJSON => {
+            this.setState({
+                dogTags: resJSON
+            })
+        })
+
+        return;
     }
 
     renderDogTags() {
-        const { dogTags = [] } = this.state
-        return dogTags.map(dogCard => 
-            <DogTag 
+
+        let filteredResults = this.state.dogTags;
+
+        if (this.state.filter) {
+           filteredResults = filteredResults.filter(dogCard => dogCard.category === this.state.filter_name)
+        }
+
+        if (this.state.filter_zip) {
+            filteredResults = filteredResults.filter(dogCard => dogCard.zipcode === this.state.filter_zipVal)
+        }
+
+        console.log(this.state.filter_name)
+        console.log(this.state.dogTags)
+
+        return filteredResults.map(dogCard => {
+            return <DogTag 
             name={dogCard.name}
-            img={dogCard.img}
+            img={dogCard.image}
             description={dogCard.description}
-            dateCreated={dogCard.dateCreated}
+            category={dogCard.category}
+            dateCreated={dogCard.date_created}
             />
-            )
+        });
     }
 
     render() {
@@ -82,6 +97,30 @@ export default class Find extends Component {
                 <div className="findContainer">
                     <div className="sidebar">
                         <h2>Sort</h2>
+                            <div>
+                                <form className="dogSizeFilter">
+                                    <label>Dog Size</label>
+                                    <div>
+                                        <input type="radio" name="size" onChange={this.filterResults} value="Small" checked={this.state.filter_name === 'Small'}/>
+                                        <label htmlFor="small">Small</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" name="size" onChange={this.filterResults} value="Medium" checked={this.state.filter_name === 'Medium'}/>
+                                        <label htmlFor="medium">Medium</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" name="size" onChange={this.filterResults} value="Large" checked={this.state.filter_name === 'Large'}/>
+                                        <label htmlFor="large">Large</label>
+                                    </div>
+                                    <div>
+                                        <input type="button" id="filterButton" name="size" onClick={this.clearFilter} value="Clear"/>
+                                    </div>
+                                </form>
+                            </div>
+                            <div>
+                                <label className="AreaCode">Area Code</label>
+                                <input type='number' id='areaCodeInput' onChange={this.filterByZip} placeholder='ex... 90260' value={this.state.filter_zipVal}/>
+                            </div>
                     </div>
 
                     <div className="lostdogs">

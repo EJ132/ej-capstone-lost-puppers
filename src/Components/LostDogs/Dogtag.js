@@ -4,7 +4,7 @@ import '../../Stylesheets/DogTags.css'
 export default class Dogtag extends Component {
     render(){
         return(
-            <div class="dogTag">
+            <div className="dogTag">
                 <h2>{this.props.name}</h2>
                 <img src={this.props.img} alt={this.props.name}></img>
                 <p>{this.props.category}</p>

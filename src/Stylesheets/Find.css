@@ -1,3 +1,8 @@
+div > .findContainer {
+    min-height: 120vh;
+    height: auto;
+}
+
 .findContainer {
     display: flex;
     flex-direction: row;
@@ -8,9 +13,45 @@
 .sidebar {
     padding: 20px;
     width: 20%;
-    height: 90vh;
-    background-color: rgb(192, 248, 108);
     display: flex;
+    flex-direction: column;
+    color: white;
+    text-align: center;
+    margin-top: 15%;
+}
+
+.dogSizeFilter {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.dogSizeFilter label {
+    color: orange;
+    display: inline-block;
+    padding: 10px;
+}
+
+.AreaCode {
+    font-weight: bold;
+    font-size: 22px;
+    display: block;
+    padding: 20px;
+}
+
+.dogSizeFilter input {
+    display: inline-block;
+}
+
+#filterButton {
+    margin-top: 5px;
+}
+
+#areaCodeInput {
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
 }
 
 .lostdogs {
@@ -22,7 +63,6 @@
 .dogContainer {
     width: 100%;
     padding: 50px 10px 50px 10px;
-    background-color: aqua;
     display: grid;
     justify-content: space-around;
     grid-template-columns: auto auto auto auto;

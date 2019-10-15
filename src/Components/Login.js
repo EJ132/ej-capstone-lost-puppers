@@ -3,8 +3,7 @@ import '../Stylesheets/Main.css'
 import Navbar from './Navbar'
 import '../Stylesheets/Login.css'
 import paw from '../Images/paw.png'
-import {Link, Route} from 'react-router-dom'
-import Register from './Register'
+import {Link} from 'react-router-dom'
 
 export default class Login extends Component {
 
