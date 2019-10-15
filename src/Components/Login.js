@@ -1,35 +1,61 @@
 import React, { Component } from 'react'
 import '../Stylesheets/Main.css'
-import Navbar from './Navbar'
 import '../Stylesheets/Login.css'
 import paw from '../Images/paw.png'
-import {Link} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
+import AuthApiService from '../services/auth-api-service'
+import TokenService from '../services/token-service'
+import NavBar from './Navbar'
+import history from '../Context/history'
 
 export default class Login extends Component {
 
-    handleSubmitLogin = (event) => {
-        event.preventDefault()
-        const {user_name, password} = event.target
-        const User = {user_name: user_name.value, password: password.value}
-        console.log(User)
+    static defaultProps = {
+        onLoginSuccess: () => {}
+      }
 
-        // TokenService.saveAuthToken(
-        //     TokenService.makeBasicAuthToken(User.user_name, User.password)
-        //   )
+    reLocate = <Redirect exact path="/"/>
 
-        user_name.value = ''
-        password.value = ''
+    state = {
+        error: null
     }
+    
+    handleSubmitJwtAuth = ev => {
+        ev.preventDefault()
+        this.setState({ error: null })
+        const { user_name, password } = ev.target
+     
+        AuthApiService.postLogin({
+          user_name: user_name.value,
+          password: password.value,
+        })
+          .then(res => {
+            user_name.value = ''
+            password.value = ''
+            TokenService.saveAuthToken(res.authToken)
+            this.props.onLoginSuccess()
+            history.push('/profile')
+          })
+          .catch(res => {
+            this.setState({ error: res.error })
+          })
+      }
 
     render() {
+        
+        const {error} = this.state;
+
         return (
             <div>
 
-                <Navbar />
+              <NavBar />
 
                 <section className="loginBG">
                     <div>
-                        <form className="login" onSubmit={this.handleSubmitLogin}>
+                        <form className="login" onSubmit={this.handleSubmitJwtAuth}>
+                            <section className="loginError" role='alert'>
+                            {error && <p className='red'>{error}</p>}
+                            </section>
                             <img src={paw} alt="paw"/>
                             <label>Username</label>
                             <input placeholder="puppy_lover132" name="user_name" type="user_name" required></input>

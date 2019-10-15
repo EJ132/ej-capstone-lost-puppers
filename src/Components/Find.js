@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import '../Stylesheets/Main.css'
-import Navbar from './Navbar'
 import '../Stylesheets/Find.css'
 import '../Stylesheets/DogTags.css'
 import DogTag from './LostDogs/Dogtag'
 import config from '../config'
+import NavBar from './Navbar'
 
 export default class Find extends Component {
 
@@ -74,9 +74,6 @@ export default class Find extends Component {
             filteredResults = filteredResults.filter(dogCard => dogCard.zipcode === this.state.filter_zipVal)
         }
 
-        console.log(this.state.filter_name)
-        console.log(this.state.dogTags)
-
         return filteredResults.map(dogCard => {
             return <DogTag 
             name={dogCard.name}
@@ -84,6 +81,8 @@ export default class Find extends Component {
             description={dogCard.description}
             category={dogCard.category}
             dateCreated={dogCard.date_created}
+            id={dogCard.id}
+            key={dogCard.id}
             />
         });
     }
@@ -92,7 +91,7 @@ export default class Find extends Component {
         return (
             <div>
 
-                <Navbar />
+                <NavBar />
 
                 <div className="findContainer">
                     <div className="sidebar">

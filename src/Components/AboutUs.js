@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
 import '../Stylesheets/AboutUs.css'
-import Navbar from './Navbar'
-// import homebackground from '../Images/homebackground.jpg'
+import NavBar from './Navbar'
 
 export default class AboutUs extends Component {
     render() {
         return (
             <div>
 
-                <Navbar />
+                <NavBar />
 
                 <section className="banner_aboutUs">
                     <div className="Overlay_aboutUs">

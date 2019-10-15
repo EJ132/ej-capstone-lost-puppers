@@ -9,6 +9,16 @@
     padding: 10px;
 }
 
+.dogTag a {
+    text-decoration: none;
+    color: black;
+}
+
+.dogTag a:visited {
+    text-decoration: none;
+    color: black;
+}
+
 .dogTag h2 {
     font-size: 20px;
     padding: 5px;

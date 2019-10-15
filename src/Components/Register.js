@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import NavBar from './Navbar'
 import '../Stylesheets/Login.css'
 import paw from '../Images/paw.png'
+import NavBar from './Navbar'
 
 export default class Register extends Component {
 
@@ -14,9 +14,6 @@ export default class Register extends Component {
         password.value = ''
         re_enter_password.value = ''
         // this.props.onRegistrationSuccess()
-
-        console.log('registration form submitted')
-        console.log({ full_name, user_name, password, re_enter_password })
       }
       
 
@@ -24,6 +21,7 @@ export default class Register extends Component {
 
         return (
             <div>
+
                 <NavBar />
 
                 <section className="loginBG">

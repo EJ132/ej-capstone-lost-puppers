@@ -1,0 +1,54 @@
+.pupPage_main {
+    height: 100vh;
+}
+
+.pupPage {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+    width: 60%;
+    height: 700px;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+.pupPage img {
+    height: 400px;
+    width: 500px;
+    border: 3px solid rgb(75, 228, 36);
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pupPage h2 {
+    font-size: 3rem;
+    padding: 20px;
+}
+
+.pupPage p {
+    font-size: 30px;
+    padding: 10px;
+}
+
+#pupPage_desc {
+    font-size: 1rem;
+    padding: 5px;
+}
+
+#pupPage_date {
+    font-size: 12px;
+    padding: 5px;
+}
+
+.pupPage_main button {
+    color: white;
+    position: absolute;
+    background-color: black;
+    top: 90px;
+    left: 90px;
+    width: 120px;
+    height: 30px;
+    border: 1px solid white;
+}

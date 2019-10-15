@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import '../Stylesheets/Main.css'
-import Navbar from './Navbar'
 import dogBone from '../Images/dogBone.png'
 import community from '../Images/community.png'
 import map from '../Images/map.png'
 import {Redirect, Link} from "react-router-dom";
+import NavBar from './Navbar'
 
 export default class Main extends Component {
 
@@ -35,7 +35,7 @@ export default class Main extends Component {
         return (
             <div>
 
-                <Navbar />
+                <NavBar />
 
                 <section className="banner">
                     <div className="Overlay">

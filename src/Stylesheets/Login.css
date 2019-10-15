@@ -54,6 +54,7 @@
     margin-left: auto;
     margin-right: auto;
     position: relative;
+    margin-top: 50px;
 }
 
 .loginBG a {
@@ -61,6 +62,18 @@
     position: absolute;
     bottom: 100px;
     right: 140px;
+}
+
+.loginError {
+    height: 100px;
+    margin-top: 100px;
+    position: absolute;
+    top: -110px;
+    right: 23%;
+}
+
+.loginError p {
+    height: 100%;
 }
 
 @media screen and (max-width: 768px) {
