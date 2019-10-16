@@ -11,6 +11,7 @@
     justify-content: flex-end;
     position: relative;
     height: 40px;
+    border-bottom: 2px dotted #907DE8;
 }
 
 .navbar li {

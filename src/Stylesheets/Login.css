@@ -76,6 +76,15 @@
     height: 100%;
 }
 
+.regError {
+    background-color: black;
+    text-align: center;
+}
+
+.regError p {
+    height: 100%;
+}
+
 @media screen and (max-width: 768px) {
     .loginBG {
         height: 92.5vh;

@@ -35,7 +35,7 @@ export default class pupPage extends Component {
 
     render(){
         return(
-            <div class="pupPage_main">
+            <div className="pupPage_main">
                 <Navbar />
 
                 <button onClick={this.goBack}>Back</button>
@@ -47,6 +47,8 @@ export default class pupPage extends Component {
                     <p id="pupPage_desc">{this.state.specDogTag.description}</p>
                     <p id="pupPage_date">{this.state.specDogTag.date_created}</p>
                 </div>
+
+                <footer>&#169; EJ Gonzalez 2019</footer>
             </div>
         )
     }

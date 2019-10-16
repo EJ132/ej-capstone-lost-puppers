@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import '../Stylesheets/Main.css'
 import '../Stylesheets/Login.css'
 import paw from '../Images/paw.png'
-import {Link, Redirect} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import AuthApiService from '../services/auth-api-service'
 import TokenService from '../services/token-service'
 import NavBar from './Navbar'
@@ -13,8 +13,6 @@ export default class Login extends Component {
     static defaultProps = {
         onLoginSuccess: () => {}
       }
-
-    reLocate = <Redirect exact path="/"/>
 
     state = {
         error: null
@@ -34,7 +32,7 @@ export default class Login extends Component {
             password.value = ''
             TokenService.saveAuthToken(res.authToken)
             this.props.onLoginSuccess()
-            history.push('/profile')
+            history.push('/')
           })
           .catch(res => {
             this.setState({ error: res.error })

@@ -17,7 +17,7 @@ div > .findContainer {
     flex-direction: column;
     color: white;
     text-align: center;
-    margin-top: 15%;
+    margin-top: 10%;
 }
 
 .dogSizeFilter {
@@ -60,11 +60,109 @@ div > .findContainer {
     color: white;
 }
 
+.lostdogs h2 {
+    font-size: 4rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+}
+
 .dogContainer {
     width: 100%;
+    height: 100%;
     padding: 50px 10px 50px 10px;
     display: grid;
-    justify-content: space-around;
-    grid-template-columns: auto auto auto auto;
+    justify-content: space-evenly;
+    grid-template-columns: auto auto ;
     grid-template-rows: 300px 300px;
+    overflow: hidden;
+}
+
+@media screen and (min-width: 1150px) {
+    .dogContainer {
+        grid-template-columns: auto auto auto;
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    .dogContainer {
+        grid-template-columns: auto auto auto auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    
+    .findContainer {
+        display: flex;
+        flex-direction: column;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    .sidebar {
+        padding: 20px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        color: white;
+        text-align: center;
+        margin-top: 10%;
+    }
+    
+    .dogSizeFilter {
+        width: 100%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .dogSizeFilter label {
+        color: orange;
+        display: inline-block;
+        padding: 10px;
+    }
+    
+    .AreaCode {
+        font-weight: bold;
+        font-size: 22px;
+        display: block;
+        padding: 20px;
+    }
+    
+    .dogSizeFilter input {
+        display: inline-block;
+    }
+    
+    #filterButton {
+        margin-top: 5px;
+        background-color: black;
+        border: 1px solid white;
+        color: white;
+        width: 40%;
+        height: 30px;
+    }
+    
+    #areaCodeInput {
+        text-align: center;
+        padding: 5px;
+        text-decoration: none;
+    }
+    
+    .lostdogs {
+        padding: 20px;
+        width: 100%;
+        color: white;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+    .dogContainer {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
 }

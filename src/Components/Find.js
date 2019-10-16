@@ -71,7 +71,7 @@ export default class Find extends Component {
         }
 
         if (this.state.filter_zip) {
-            filteredResults = filteredResults.filter(dogCard => dogCard.zipcode === this.state.filter_zipVal)
+            filteredResults = filteredResults.filter(dogCard => dogCard.zipcode === `${this.state.filter_zipVal}`)
         }
 
         return filteredResults.map(dogCard => {

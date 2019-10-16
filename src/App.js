@@ -20,7 +20,7 @@ function App() {
         <Route exact path='/aboutus' component={AboutUs}/>
         <Route exact path='/find' component={Find}/>
         <PublicOnlyRoute path='/login' component={Login}/>
-        <PublicOnlyRoute path='/register' component={Register} />
+        <PublicOnlyRoute exact path='/register' component={Register} />
         <PrivateRoute path='/profile' component={Profile}/>
         <PrivateRoute exact path ='/find/:id' component={pupPage}/>
       </Router>
