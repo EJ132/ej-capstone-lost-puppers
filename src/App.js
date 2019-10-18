@@ -7,6 +7,7 @@ import Login from './Components/Login'
 import Register from './Components/Register'
 import Profile from './Components/Logged_In/Profile'
 import pupPage from './Components/LostDogs/pupPage'
+import Create from './Components/Create'
 import {Route, Router} from 'react-router-dom';
 import PrivateRoute from './Components/Utils/PrivateRoute'
 import PublicOnlyRoute from './Components/Utils/PublicOnlyRoute'
@@ -21,8 +22,9 @@ function App() {
         <Route exact path='/find' component={Find}/>
         <PublicOnlyRoute path='/login' component={Login}/>
         <PublicOnlyRoute exact path='/register' component={Register} />
-        <PrivateRoute path='/profile' component={Profile}/>
         <PrivateRoute exact path ='/find/:id' component={pupPage}/>
+        <PrivateRoute exact path ='/profile' component={Profile}/>
+        <PrivateRoute exact path = '/create' component={Create}/>
       </Router>
     </div>
   );

@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import React, { Component } from 'react'
 import '../Stylesheets/Main.css'
 import '../Stylesheets/Find.css'
@@ -5,6 +6,8 @@ import '../Stylesheets/DogTags.css'
 import DogTag from './LostDogs/Dogtag'
 import config from '../config'
 import NavBar from './Navbar'
+import {Link} from 'react-router-dom'
+import TokenService from '../services/token-service'
 
 export default class Find extends Component {
 
@@ -27,6 +30,8 @@ export default class Find extends Component {
 
     }
 
+    //need to implement when zipcode field is empty to set back to null or show all results
+
     filterByZip = ev => {
 
         this.setState({
@@ -47,7 +52,7 @@ export default class Find extends Component {
     }
 
     componentDidMount() {
-        fetch(`${config.API_ENDPOINT}/pups`)
+        fetch(`${config.API_ENDPOINT}/pups`, {method: 'GET'})
         .then(res =>
             (!res.ok)
               ? res.json().then(e => Promise.reject(e))
@@ -62,16 +67,49 @@ export default class Find extends Component {
         return;
     }
 
+    handleDelete = cardId => {
+        fetch(`${config.API_ENDPOINT}/pups/${cardId}`, {
+        method: 'DELETE',
+        headers: { 'authorization': `bearer ${TokenService.getAuthToken()}`}
+        })
+        .then(res => {
+            this.setState({
+                // eslint-disable-next-line eqeqeq
+                dogTags: this.state.dogTags.filter(dog => dog.id != cardId)
+            })
+            return;
+            })
+    }
+
     renderDogTags() {
 
         let filteredResults = this.state.dogTags;
 
         if (this.state.filter) {
-           filteredResults = filteredResults.filter(dogCard => dogCard.category === this.state.filter_name)
+           // eslint-disable-next-line eqeqeq
+           filteredResults = filteredResults.filter(dogCard => dogCard.category == this.state.filter_name)
+        }
+
+        // eslint-disable-next-line eqeqeq
+        if (this.state.filter_zipVal == ''){
+            return filteredResults.map(dogCard => {
+                return <DogTag 
+                name={dogCard.name}
+                img={dogCard.image}
+                description={dogCard.description}
+                category={dogCard.category}
+                dateCreated={dogCard.date_created}
+                id={dogCard.id}
+                key={dogCard.id}
+                owner={dogCard.owner}
+                delete={this.handleDelete}
+                />
+            });
         }
 
         if (this.state.filter_zip) {
-            filteredResults = filteredResults.filter(dogCard => dogCard.zipcode === `${this.state.filter_zipVal}`)
+            // eslint-disable-next-line eqeqeq
+            filteredResults = filteredResults.filter(dogCard => dogCard.zipcode == this.state.filter_zipVal)
         }
 
         return filteredResults.map(dogCard => {
@@ -83,9 +121,27 @@ export default class Find extends Component {
             dateCreated={dogCard.date_created}
             id={dogCard.id}
             key={dogCard.id}
+            owner={dogCard.owner}
+            delete={this.handleDelete}
             />
         });
     }
+
+    zipOptions = () => {
+
+        const dogZips = this.state.dogTags.map(dog => dog.zipcode)
+        const newArray = dogZips.filter((elem, i, arr) => {
+            if (arr.indexOf(elem) === i) {
+              return elem
+            }
+          })
+
+        return (
+        <select className="zipCodes" name='category' onChange={this.filterByZip}>
+            {newArray.map(dog => {
+             return <option key={dog} value={dog}>{dog}</option> })}
+        </select>
+    )}
 
     render() {
         return (
@@ -118,7 +174,10 @@ export default class Find extends Component {
                             </div>
                             <div>
                                 <label className="AreaCode">Area Code</label>
-                                <input type='number' id='areaCodeInput' onChange={this.filterByZip} placeholder='ex... 90260' value={this.state.filter_zipVal}/>
+                                {this.zipOptions()}
+                            </div>
+                            <div className="addPup">
+                                <Link to="/create">+ Add Pup</Link>
                             </div>
                     </div>
 
@@ -137,4 +196,6 @@ export default class Find extends Component {
     }
 }
 
-// line 39...44 will be filled with dogCards (lost dog cards) components
+
+
+//implement automatic y axis for the messages

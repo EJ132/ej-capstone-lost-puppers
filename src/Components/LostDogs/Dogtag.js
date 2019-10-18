@@ -1,21 +1,21 @@
-import React, { Component } from 'react'
+/* eslint-disable eqeqeq */
 import '../../Stylesheets/DogTags.css'
 import {Link} from 'react-router-dom'
+import React from 'react'
 
-export default class Dogtag extends Component {
-    render(){
-        return(
+function DogTag(props) {
+
+    let date = new Date(props.dateCreated)
+
+    return (
             <div className="dogTag">
-                <Link to={`/find/${this.props.id}`}>
-                    <h2>{this.props.name}</h2>
-                    <img src={this.props.img} alt={this.props.name}></img>
-                    <p>{this.props.category}</p>
-                    <p>{this.props.description}</p>
-                    <p>{this.props.dateCreated}</p>
-                </Link>
+                <Link to={`/find/${props.id}`}><h2>{props.name}</h2></Link>
+                    <img src={props.img} alt={props.name}></img>
+                    <p>{props.category}</p>
+                    <p>{props.description}</p>
+                    <p>Posted: {date.getUTCFullYear()}/{date.getUTCMonth()}/{date.getUTCDate()}</p>
             </div>
         )
-    }
 }
 
-//refactor to be a function
+export default DogTag;

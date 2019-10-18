@@ -13,11 +13,12 @@ export default class Register extends Component {
 
     handleRegister = event => {
         event.preventDefault()
-        const { fullname, user_name, password, re_enter_password, zipcode } = event.target
+        const { fullname, user_name, password, re_enter_password } = event.target
 
         this.setState({ error: null })
 
-        if (password !== re_enter_password) {
+        // eslint-disable-next-line eqeqeq
+        if (password.value !== re_enter_password.value) {
             return this.setState({
                 error: 'Please enter matching passwords'
             })
@@ -26,15 +27,13 @@ export default class Register extends Component {
         AuthApiService.postUser({
             user_name: user_name.value,
             password: password.value,
-            fullname: fullname.value,
-            zipcode: zipcode.value,
+            fullname: fullname.value
         })
             .then(user => {
                 fullname.value = ''
                 user_name.value = ''
                 password.value = ''
                 re_enter_password.value = ''
-                zipcode.value = ''
                 // this.props.onRegistrationSuccess()
             })
             .then(() => 
@@ -69,8 +68,6 @@ export default class Register extends Component {
                         <input placeholder="EJ Gonzalez" name="fullname" type="text" required></input>
                         <label>Username</label>
                         <input placeholder="puppy_lover132" name="user_name" type="user_name" required></input>
-                        <label>Zipcode</label>
-                        <input placeholder="90230" name="zipcode" type="number" required></input>
                         <label>Password</label>
                         <input placeholder="********" name="password" type="password" required></input>
                         <label>Re-enter Password</label>

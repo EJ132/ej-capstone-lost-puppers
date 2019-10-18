@@ -1,0 +1,115 @@
+.profile_page {
+    min-height: 120vh;
+    height: auto;
+}
+
+.profile {
+    color: white;
+    padding: 20px;
+    height: 300px;
+}
+
+.profile h2 {
+    font-size: 4rem;
+    padding: 20px;
+    text-decoration: underline;
+    letter-spacing: 1px;
+}
+
+.profile h3 {
+    margin-top: 10px;
+    font-size: 3rem;
+    margin-left: 125px;
+    letter-spacing: 2px;
+}
+
+.profile p {
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.Post {
+    height: auto;
+    color: white;
+    text-align: center;
+}
+
+#yourPost {
+    font-size: 3rem;
+    padding: 20px 10px 0px 10px;
+}
+
+
+.userPosts {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.addPup {
+    padding: 20px;
+    margin-top: 15px
+}
+
+.addPup a {
+    background-color: rgb(187, 177, 235);
+    padding: 10px;
+    display: block;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    text-decoration: none;
+    color: black;
+}
+
+@media screen and (max-width: 768px) {
+    
+    .profile {
+        color: white;
+        padding: 20px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    
+    .profile h2 {
+        padding: initial;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .profile h3 {
+        margin-left: initial;
+    }
+    
+    .profile p {
+        padding: 10px;
+        margin-top: 10px;
+    }
+    
+    .Post {
+        height: auto;
+        color: white;
+        text-align: center;
+    }
+    
+    
+    .userPosts {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 50px;
+    }
+}

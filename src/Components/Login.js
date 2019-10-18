@@ -5,14 +5,11 @@ import paw from '../Images/paw.png'
 import {Link} from 'react-router-dom'
 import AuthApiService from '../services/auth-api-service'
 import TokenService from '../services/token-service'
+import config from '../config'
 import NavBar from './Navbar'
 import history from '../Context/history'
 
 export default class Login extends Component {
-
-    static defaultProps = {
-        onLoginSuccess: () => {}
-      }
 
     state = {
         error: null
@@ -28,10 +25,19 @@ export default class Login extends Component {
           password: password.value,
         })
           .then(res => {
+            TokenService.saveUserName(user_name.value)
             user_name.value = ''
             password.value = ''
             TokenService.saveAuthToken(res.authToken)
-            this.props.onLoginSuccess()
+            fetch(`${config.API_ENDPOINT}/profile/${TokenService.getUserName()}`, {
+              headers: {'authorization': `bearer ${TokenService.getAuthToken()}`},})
+                .then(res =>
+                    (!res.ok)
+                        ? res.json().then(e => Promise.reject(e))
+                        : res.json()
+                )
+                .then(resJSON => {
+                  TokenService.saveUserId(resJSON.id)})
             history.push('/')
           })
           .catch(res => {

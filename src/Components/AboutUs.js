@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/iframe-has-title */
 import React, { Component } from 'react'
 import '../Stylesheets/AboutUs.css'
 import NavBar from './Navbar'
@@ -27,6 +28,8 @@ export default class AboutUs extends Component {
                         how scary it can be to come home and your dog is missing. Take your first
                         steps now by signing up and if this site was able to help you please feel free to donate. 
                         </p>
+
+                        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe_lLX2-Ikhq4whBWYTXxxxN9i8inQpXnDIL6viS1nTCEHHnA/viewform?embedded=true" className="survey" frameBorder="0" marginHeight="0" marginWidth="0">Loading…</iframe>
                     </div>
                 </section>
                 <footer>&#169; EJ Gonzalez 2019</footer>

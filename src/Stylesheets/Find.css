@@ -28,7 +28,7 @@ div > .findContainer {
 }
 
 .dogSizeFilter label {
-    color: orange;
+    color: #79B877;
     display: inline-block;
     padding: 10px;
 }
@@ -77,6 +77,15 @@ div > .findContainer {
     overflow: hidden;
 }
 
+.zipCodes {
+    height: 30px;
+    width: 80px;
+    background-color: white;
+    text-align: center;
+    border-radius: 5px;
+    padding: 7px;
+}
+
 @media screen and (min-width: 1150px) {
     .dogContainer {
         grid-template-columns: auto auto auto;
@@ -116,7 +125,7 @@ div > .findContainer {
     }
     
     .dogSizeFilter label {
-        color: orange;
+        color: #79B877;
         display: inline-block;
         padding: 10px;
     }
