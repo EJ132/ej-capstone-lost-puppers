@@ -9,11 +9,13 @@ function DogTag(props) {
 
     return (
             <div className="dogTag">
-                <Link to={`/find/${props.id}`}><h2>{props.name}</h2></Link>
+                <Link to={`/find/${props.id}`}>
+                    <h2>{props.name}</h2>
                     <img src={props.img} alt={props.name}></img>
                     <p>{props.category}</p>
                     <p>{props.description}</p>
                     <p>Posted: {date.getUTCFullYear()}/{date.getUTCMonth()}/{date.getUTCDate()}</p>
+                </Link>
             </div>
         )
 }

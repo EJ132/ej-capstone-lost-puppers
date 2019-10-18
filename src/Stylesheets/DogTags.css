@@ -1,25 +1,27 @@
 .dogTag {
     height: 250px;
     width: 200px;
-    color: black;
+    color: white;
     display: flex;
     flex-direction: column;
     text-align: center;
     padding: 10px;
-    background-color: #79B877;
+    background-color: black;
     border-radius: 5px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     position: relative;
+    border-right: 1px solid grey;
+    border-left: 1px solid grey;
 }
 
 .dogTag a {
     text-decoration: none;
-    color: black;
+    color: white;
 }
 
 .dogTag a:visited {
     text-decoration: none;
-    color: black;
+    color: white;
 }
 
 .dogTag h2 {
