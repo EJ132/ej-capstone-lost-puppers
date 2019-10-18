@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import '../Stylesheets/AboutUs.css'
 import NavBar from './Navbar'
+import aboutMe from '../Images/aboutMe.jpg'
 
 export default class AboutUs extends Component {
     render() {
@@ -28,6 +29,8 @@ export default class AboutUs extends Component {
                         how scary it can be to come home and your dog is missing. Take your first
                         steps now by signing up and if this site was able to help you please feel free to donate. 
                         </p>
+
+                        <img src={aboutMe} alt="portrait of husky"/>
 
                         <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe_lLX2-Ikhq4whBWYTXxxxN9i8inQpXnDIL6viS1nTCEHHnA/viewform?embedded=true" className="survey" frameBorder="0" marginHeight="0" marginWidth="0">Loading…</iframe>
                     </div>
