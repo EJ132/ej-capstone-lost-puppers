@@ -29,7 +29,7 @@
 
 .pupPage img {
     height: 60vh;
-    width: 70%;
+    width: 700px;
     border: 3px solid #bbb1eb;
     border-radius: 5px;
     margin-left: auto;
@@ -179,8 +179,8 @@ cursor: pointer;
     }
     
     .pupPage img {
-        height: 200px;
-        width: 200px;
+        height: 40%;
+        width: 60%;
         border: 3px solid rgb(75, 228, 36);
         border-radius: 5px;
         margin-left: auto;
