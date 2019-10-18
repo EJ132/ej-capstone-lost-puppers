@@ -37,7 +37,7 @@ export default class Register extends Component {
                 // this.props.onRegistrationSuccess()
             })
             .then(() => 
-                history.pushState('/login')
+                history.push('/login')
             )
            .catch(res => {
              this.setState({ error: res.error })
