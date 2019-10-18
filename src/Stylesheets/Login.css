@@ -42,8 +42,14 @@
     padding: 5px;
     width: 30%;
     height: 6%;
-    border: none;
+    border: solid 2px white;
+    background-color: black;
+    color: white;
     border-radius: 5px;
+}
+
+.login button:hover {
+    cursor: pointer;
 }
 
 .loginBG div {
@@ -146,7 +152,7 @@
         padding: 5px;
         width: 30%;
         height: 30px;
-        border: none;
+        border: 1px solid white;
         border-radius: 5px;
     
     }
