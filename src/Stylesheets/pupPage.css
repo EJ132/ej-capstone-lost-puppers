@@ -179,8 +179,8 @@ cursor: pointer;
     }
     
     .pupPage img {
-        height: 40%;
-        width: 60%;
+        height: 100%;
+        width: 80%;
         border: 3px solid rgb(75, 228, 36);
         border-radius: 5px;
         margin-left: auto;
