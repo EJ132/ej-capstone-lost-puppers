@@ -36,7 +36,18 @@
     margin-right: auto;
 }
 
-.pupPage h2, .messages h2 {
+.pupPage #name {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: black;
+    color: white;
+    border: none;
+    width: 100%;
+}
+
+.pupPage #name, .messages h2 {
     font-size: 3rem;
     padding: 20px;
 }
@@ -49,6 +60,12 @@
 #pupPage_desc {
     font-size: 1rem;
     padding: 5px;
+    border: none;
+    background-color: black;
+    color: white;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #pupPage_date {
@@ -85,6 +102,23 @@
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
+}
+
+#saveDogTag {
+    background-color: white;
+    width: auto;
+    height: 30px;
+    width: 90px;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    padding: 4px;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
 }
 
 #deleteDogTag:hover {

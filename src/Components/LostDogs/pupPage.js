@@ -77,7 +77,7 @@ export default class pupPage extends Component {
         let month = date.getUTCMonth();
         let day = date.getUTCDate();
 
-        return `${year}/${month}/${day}`
+        return `${year}/${month + 1}/${day}`
     }
 
     handleComment = ev => {
@@ -100,6 +100,51 @@ export default class pupPage extends Component {
         element.scrollTop = element.scrollHeight;
     }
 
+    handleEditComment = ev => {
+        const target = ev.target;
+        const value = target.value;
+        const name = target.name;
+
+        console.log(value)
+
+        this.setState({
+            specDogTag: {
+                ...this.state.specDogTag,
+                [name]: value
+            }
+        })
+    }
+
+    // submitChanges = e => {
+    //     e.preventDefault()
+    //     let updatedSession = this.state;
+    //     let sessionId = this.props.params.session_id;
+    //     console.log(sessionId)
+    //     ApiService.updateSession(sessionId, JSON.stringify(updatedSession))
+    //   }
+
+    handleEditCommentSubmit = event => {
+        event.preventDefault()
+        console.log(this.state.specDogTag)
+
+        const values = JSON.stringify({name: this.state.specDogTag.name, description: this.state.specDogTag.description})
+        console.log(values)
+
+        fetch(`${config.API_ENDPOINT}/pups/${this.props.match.params.id}`, {
+            headers: {'authorization': `bearer ${TokenService.getAuthToken()}`,
+                      'content-type': 'application/json' },
+            method: 'PATCH',
+            body: values,
+        })
+        .then(res =>
+            (!res.ok)
+              ? res.json().then(e => Promise.reject(e))
+              : res.json()
+        )
+
+        console.log('Handle edit comment submission')
+    }
+
     render(){
         return(
             <div className="pupPage_main">
@@ -109,16 +154,32 @@ export default class pupPage extends Component {
 
                 <button id="backBtn" onClick={this.goBack}>Back</button>
 
-                <div className="pupPage">
-                    <h2>{this.state.specDogTag.name}</h2>
-                    <img alt={this.state.specDogTag.description} src={this.state.specDogTag.image}/>
-                    <p>{this.state.specDogTag.category}</p>
-                    <p id="pupPage_desc">{this.state.specDogTag.description}</p>
-                    <p id="pupPage_date">Posted: {this.timeRead(this.state.specDogTag.date_created)}</p>
-                    {TokenService.getUserId() == this.state.specDogTag.owner ? <button onClick={() => {
-                        this.handleDelete(this.props.match.params.id)
-                    }} id="deleteDogTag">Delete</button> : null}
-                </div>
+                {TokenService.getUserId() == this.state.specDogTag.owner ? 
+                    <div className="pupPage">
+                        <form onSubmit={this.handleEditCommentSubmit}>
+                            <input id='name' type='text' onChange={this.handleEditComment} name='name' ref='name' value={this.state.specDogTag.name}></input>
+                            <img alt={this.state.specDogTag.description} src={this.state.specDogTag.image}/>
+                            <p>{this.state.specDogTag.category}</p>
+                            <p id="pupPage_date">Posted: {this.timeRead(this.state.specDogTag.date_created)}</p>
+                            <input id="pupPage_desc" type='text' onChange={this.handleEditComment} name='description' ref='description' value={this.state.specDogTag.description}></input>
+                            <button type='submit' id="saveDogTag">Save</button>
+                        </form>
+                        {TokenService.getUserId() == this.state.specDogTag.owner ? <button onClick={() => {
+                            this.handleDelete(this.props.match.params.id)
+                        }} id="deleteDogTag">Delete</button> : null}
+                    </div> 
+                    :
+                    <div className="pupPage">
+                        <h2>{this.state.specDogTag.name}</h2>
+                        <img alt={this.state.specDogTag.description} src={this.state.specDogTag.image}/>
+                        <p>{this.state.specDogTag.category}</p>
+                        <p id="pupPage_desc">{this.state.specDogTag.description}</p>
+                        <p id="pupPage_date">Posted: {this.timeRead(this.state.specDogTag.date_created)}</p>
+                        {TokenService.getUserId() == this.state.specDogTag.owner ? <button onClick={() => {
+                            this.handleDelete(this.props.match.params.id)
+                        }} id="deleteDogTag">Delete</button> : null}
+                    </div>
+                }
 
                 <div className="messages">
                     <h2>Messages</h2>

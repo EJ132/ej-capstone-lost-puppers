@@ -13,7 +13,7 @@
     border-right: 1px solid grey;
     border-left: 1px solid grey;
 }
-
+ 
 .dogTag a {
     text-decoration: none;
     color: white;
@@ -34,6 +34,8 @@
     font-size: 12px;
     font-weight: 600;
     padding: 5px;
+    height: 25px;
+    overflow: hidden;
 }
 
 .dogTag img {
