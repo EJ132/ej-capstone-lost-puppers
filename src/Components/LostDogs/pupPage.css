@@ -254,6 +254,11 @@ cursor: pointer;
         width: 120px;
         height: 30px;
     }
+
+    #EDIT_pupPage_desc {
+        width: 100%;
+        height: 100px;
+    }
 }
 
 /* IPAD ONLY */
