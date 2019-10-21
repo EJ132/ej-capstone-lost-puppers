@@ -115,14 +115,6 @@ export default class pupPage extends Component {
         })
     }
 
-    // submitChanges = e => {
-    //     e.preventDefault()
-    //     let updatedSession = this.state;
-    //     let sessionId = this.props.params.session_id;
-    //     console.log(sessionId)
-    //     ApiService.updateSession(sessionId, JSON.stringify(updatedSession))
-    //   }
-
     handleEditCommentSubmit = event => {
         event.preventDefault()
         console.log(this.state.specDogTag)
@@ -161,7 +153,7 @@ export default class pupPage extends Component {
                             <img alt={this.state.specDogTag.description} src={this.state.specDogTag.image}/>
                             <p>{this.state.specDogTag.category}</p>
                             <p id="pupPage_date">Posted: {this.timeRead(this.state.specDogTag.date_created)}</p>
-                            <input id="pupPage_desc" type='text' onChange={this.handleEditComment} name='description' ref='description' value={this.state.specDogTag.description}></input>
+                            <textarea id="EDIT_pupPage_desc" type='text' onChange={this.handleEditComment} name='description' ref='description' value={this.state.specDogTag.description}></textarea>
                             <button type='submit' id="saveDogTag">Save</button>
                         </form>
                         {TokenService.getUserId() == this.state.specDogTag.owner ? <button onClick={() => {
