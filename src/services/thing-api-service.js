@@ -4,14 +4,12 @@ import config from '../config'
 const PupApiService = {
   getpups() {
     return fetch(`${config.API_ENDPOINT}/pups`, {
-      headers: {
-      },
-    })
-      .then(res =>
+      headers: {'authorization': `bearer ${TokenService.getAuthToken()}`},})
+    .then(res =>
         (!res.ok)
-          ? res.json().then(e => Promise.reject(e))
-          : res.json()
-      )
+            ? res.json().then(e => Promise.reject(e))
+            : res.json()
+    )
   },
   getPup(pupId) {
     return fetch(`${config.API_ENDPOINT}/pups/${pupId}`, {
@@ -25,36 +23,54 @@ const PupApiService = {
           : res.json()
       )
   },
-  getPupDetails(pupId) {
-    return fetch(`${config.API_ENDPOINT}/pups/${pupId}/details`, {
-      headers: {
-        'authorization': `basic ${TokenService.getAuthToken()}`
-      },
-    })
-      .then(res =>
+  getProfile(){
+    return fetch(`${config.API_ENDPOINT}/profile/${TokenService.getUserName()}`, {
+      headers: {'authorization': `bearer ${TokenService.getAuthToken()}`},})
+    .then(res =>
         (!res.ok)
+            ? res.json().then(e => Promise.reject(e))
+            : res.json()
+    )
+  },
+  deletePup(cardId){
+    return fetch(`${config.API_ENDPOINT}/pups/${cardId}`, {
+      method: 'DELETE',
+      headers: { 'authorization': `bearer ${TokenService.getAuthToken()}`}
+      })
+  },
+  getPupCard(param){
+   return fetch(`${config.API_ENDPOINT}/pups/${param}`, {
+      headers: {'authorization': `bearer ${TokenService.getAuthToken()}`},
+    })
+    .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+    )
+  },
+  getPupComments(param){
+    return fetch(`${config.API_ENDPOINT}/pups/${param}/comments`, {
+      headers: {'authorization': `bearer ${TokenService.getAuthToken()}`},
+      })
+      .then(res => 
+          (!res.ok)
           ? res.json().then(e => Promise.reject(e))
           : res.json()
       )
   },
-  postDetails(pupId, text) {
-    return fetch(`${config.API_ENDPOINT}/pups`, {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-        'authorization': `basic ${TokenService.getAuthToken()}`
-      },
-      body: JSON.stringify({
-        Pup_id: pupId,
-        text,
-      }),
-    })
+  editPupComment(param, values){
+    return fetch(`${config.API_ENDPOINT}/pups/${param}`, {
+      headers: {'authorization': `bearer ${TokenService.getAuthToken()}`,
+                'content-type': 'application/json' },
+      method: 'PATCH',
+      body: values,
+      })
       .then(res =>
-        (!res.ok)
-          ? res.json().then(e => Promise.reject(e))
-          : res.json()
+          (!res.ok)
+            ? res.json().then(e => Promise.reject(e))
+            : res.json()
       )
-  }
+  },
 }
 
 export default PupApiService

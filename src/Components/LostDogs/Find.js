@@ -4,10 +4,9 @@ import '../MainPage/Main.css'
 import './Find.css'
 import './DogTags.css'
 import DogTag from './Dogtag'
-import config from '../../config'
 import NavBar from '../NavBar/Navbar'
 import {Link} from 'react-router-dom'
-import TokenService from '../../services/token-service'
+import PupApiService from '../../services/thing-api-service'
 
 export default class Find extends Component {
 
@@ -30,8 +29,6 @@ export default class Find extends Component {
 
     }
 
-    //need to implement when zipcode field is empty to set back to null or show all results
-
     filterByZip = ev => {
 
         this.setState({
@@ -52,12 +49,7 @@ export default class Find extends Component {
     }
 
     componentDidMount() {
-        fetch(`${config.API_ENDPOINT}/pups`, {method: 'GET'})
-        .then(res =>
-            (!res.ok)
-              ? res.json().then(e => Promise.reject(e))
-              : res.json()
-        )
+        PupApiService.getpups()
         .then(resJSON => {
             this.setState({
                 dogTags: resJSON
@@ -65,20 +57,6 @@ export default class Find extends Component {
         })
 
         return;
-    }
-
-    handleDelete = cardId => {
-        fetch(`${config.API_ENDPOINT}/pups/${cardId}`, {
-        method: 'DELETE',
-        headers: { 'authorization': `bearer ${TokenService.getAuthToken()}`}
-        })
-        .then(res => {
-            this.setState({
-                // eslint-disable-next-line eqeqeq
-                dogTags: this.state.dogTags.filter(dog => dog.id != cardId)
-            })
-            return;
-            })
     }
 
     renderDogTags() {
@@ -102,7 +80,6 @@ export default class Find extends Component {
                 id={dogCard.id}
                 key={dogCard.id}
                 owner={dogCard.owner}
-                delete={this.handleDelete}
                 />
             });
         }
@@ -122,7 +99,6 @@ export default class Find extends Component {
             id={dogCard.id}
             key={dogCard.id}
             owner={dogCard.owner}
-            delete={this.handleDelete}
             />
         });
     }

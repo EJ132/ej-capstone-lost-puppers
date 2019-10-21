@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Navbar from '../NavBar/Navbar'
-import config from '../../config'
 import './Profile.css'
 import TokenService from '../../services/token-service'
+import PupApiService from '../../services/thing-api-service'
 import DogTag from '../LostDogs/Dogtag'
 
 export default class Profile extends Component {
@@ -13,38 +13,23 @@ export default class Profile extends Component {
             user_name: '',
             id: null
         },
-
         userPost : []
     }
 
     componentDidMount() {
-
-        fetch(`${config.API_ENDPOINT}/profile/${TokenService.getUserName()}`, {
-            headers: {'authorization': `bearer ${TokenService.getAuthToken()}`},})
-        .then(res =>
-            (!res.ok)
-                ? res.json().then(e => Promise.reject(e))
-                : res.json()
-        )
-        .then(resJSON => {
-            this.setState({
-                user: resJSON
+        PupApiService.getProfile()
+            .then(resJSON => {
+                this.setState({
+                    user: resJSON
+                })
+                TokenService.saveUserId(this.state.user.id)
+                this.setCards()
             })
-            TokenService.saveUserId(this.state.user.id)
-            this.setCards()
-        })
-
     }
 
     setCards = () => {
 
-        return fetch(`${config.API_ENDPOINT}/pups`, {
-            headers: {'authorization': `bearer ${TokenService.getAuthToken()}`},})
-        .then(res =>
-            (!res.ok)
-                ? res.json().then(e => Promise.reject(e))
-                : res.json()
-        )
+        PupApiService.getpups()
         .then(resJSON => {
             // eslint-disable-next-line eqeqeq
             const userPups = resJSON.filter(dog => {

@@ -1,12 +1,12 @@
 /* eslint-disable eqeqeq */
 import React, { Component } from 'react'
 import Navbar from '../NavBar/Navbar'
-import config from '../../config'
 import TokenService from '../../services/token-service'
 import MakeComment from './MakeComment'
 import './pupPage.css'
 import history from '../../Context/history'
 import AuthApiService from '../../services/auth-api-service'
+import PupApiService from '../../services/thing-api-service'
 
 
 export default class pupPage extends Component {
@@ -18,14 +18,10 @@ export default class pupPage extends Component {
     }
 
     componentDidMount() {
-        fetch(`${config.API_ENDPOINT}/pups/${this.props.match.params.id}`, {
-            headers: {'authorization': `bearer ${TokenService.getAuthToken()}`},
-        })
-        .then(res =>
-            (!res.ok)
-              ? res.json().then(e => Promise.reject(e))
-              : res.json()
-        )
+
+        let paramId = this.props.match.params.id
+
+        PupApiService.getPupCard(paramId)
         .then(resJSON => {
             this.setState({
                 specDogTag: resJSON
@@ -33,19 +29,12 @@ export default class pupPage extends Component {
             this.timeRead()
         })
 
-        fetch(`${config.API_ENDPOINT}/pups/${this.props.match.params.id}/comments`, {
-            headers: {'authorization': `bearer ${TokenService.getAuthToken()}`},
-        })
-            .then(res => 
-                (!res.ok)
-                ? res.json().then(e => Promise.reject(e))
-                : res.json()
-            )
-            .then(resJSON => {
-                this.setState({
-                    comments: resJSON
-                })
+        PupApiService.getPupComments(paramId)
+        .then(resJSON => {
+            this.setState({
+                comments: resJSON
             })
+        })
 
         this.scrollToBottom()
 
@@ -61,10 +50,7 @@ export default class pupPage extends Component {
     }
 
     handleDelete = cardId => {
-        fetch(`${config.API_ENDPOINT}/pups/${cardId}`, {
-        method: 'DELETE',
-        headers: { 'authorization': `bearer ${TokenService.getAuthToken()}`}
-        })
+        PupApiService.deletePup(cardId)
         .then(res => {
             history.push('/profile')
             return;
@@ -122,17 +108,9 @@ export default class pupPage extends Component {
         const values = JSON.stringify({name: this.state.specDogTag.name, description: this.state.specDogTag.description})
         console.log(values)
 
-        fetch(`${config.API_ENDPOINT}/pups/${this.props.match.params.id}`, {
-            headers: {'authorization': `bearer ${TokenService.getAuthToken()}`,
-                      'content-type': 'application/json' },
-            method: 'PATCH',
-            body: values,
-        })
-        .then(res =>
-            (!res.ok)
-              ? res.json().then(e => Promise.reject(e))
-              : res.json()
-        )
+        let param = this.props.match.params.id
+
+        PupApiService(param, values)
 
         console.log('Handle edit comment submission')
     }

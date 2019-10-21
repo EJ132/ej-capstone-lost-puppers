@@ -76,5 +76,3 @@ export default class Login extends Component {
         )
     }
 }
-
-// line 39...44 will be filled with dogCards (lost dog cards) components
