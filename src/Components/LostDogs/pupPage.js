@@ -1,10 +1,10 @@
 /* eslint-disable eqeqeq */
 import React, { Component } from 'react'
-import Navbar from '../Navbar'
+import Navbar from '../NavBar/Navbar'
 import config from '../../config'
 import TokenService from '../../services/token-service'
 import MakeComment from './MakeComment'
-import '../../Stylesheets/pupPage.css'
+import './pupPage.css'
 import history from '../../Context/history'
 import AuthApiService from '../../services/auth-api-service'
 

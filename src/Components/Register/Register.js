@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import '../Stylesheets/Login.css'
-import paw from '../Images/paw.png'
-import NavBar from './Navbar'
-import AuthApiService from '../services/auth-api-service'
-import history from '../Context/history'
+import '../Login/Login.css'
+import paw from '../../Images/paw.png'
+import NavBar from '../NavBar/Navbar'
+import AuthApiService from '../../services/auth-api-service'
+import history from '../../Context/history'
 
 export default class Register extends Component {
 

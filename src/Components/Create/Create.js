@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import NavBar from './Navbar'
-import '../Stylesheets/Create.css'
-import TokenService from '../services/token-service'
-import AuthApiService from '../services/auth-api-service'
-import history from '../Context/history'
+import NavBar from '../NavBar/Navbar'
+import './Create.css'
+import TokenService from '../../services/token-service'
+import AuthApiService from '../../services/auth-api-service'
+import history from '../../Context/history'
 
 export default class Create extends Component {
 

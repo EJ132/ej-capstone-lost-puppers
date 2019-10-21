@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/iframe-has-title */
 import React, { Component } from 'react'
-import '../Stylesheets/AboutUs.css'
-import NavBar from './Navbar'
-import aboutMe from '../Images/aboutMe.jpg'
+import './AboutUs.css'
+import NavBar from '../NavBar/Navbar'
+import aboutMe from '../../Images/aboutMe.jpg'
 
 export default class AboutUs extends Component {
     render() {

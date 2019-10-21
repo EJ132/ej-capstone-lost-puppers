@@ -1,11 +1,6 @@
 /* ABOUT US SECTION DESIGN */
 
 .banner_aboutUs {
-    /* background: 
-    url("../Images/aboutUsBackground.jpg") 
-    no-repeat
-    fixed;
-    background-size: 2250px 1500px; */
     background-color: white;
     position: relative;
     width: 100%;
@@ -79,14 +74,6 @@
     }
 
     .banner_aboutUs {
-        /* background: 
-        url("../Images/aboutUsBackground.jpg") 
-        no-repeat
-        center
-        center
-        fixed;
-        background-size: cover;
-        background-size: 2250px 1500px; */
         position: relative;
         color: black;
         overflow: unset;

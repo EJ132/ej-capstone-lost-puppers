@@ -5,7 +5,7 @@ div > .createPup {
 
 .createPup {
     width: 100%;
-    background: url("../Images/create.jpg")
+    background: url("../../Images/create.jpg")
     no-repeat
     center
     center;
@@ -76,7 +76,7 @@ div > .createPup {
 @media screen and (max-width: 768px) {
     .createPup {
         width: 100%;
-        background: url("../Images/create.jpg")
+        background: url("../../Images/create.jpg")
         no-repeat
         center
         center;

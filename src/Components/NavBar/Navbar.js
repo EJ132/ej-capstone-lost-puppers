@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
-import '../Stylesheets/Navbar.css';
-import paw from '../Images/paw.png';
-import TokenService from '../services/token-service'
+import './Navbar.css';
+import paw from '../../Images/paw.png';
+import TokenService from '../../services/token-service'
 
 export default class Navbar extends Component {
 

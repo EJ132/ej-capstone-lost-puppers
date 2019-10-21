@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import Navbar from '../Navbar'
+import Navbar from '../NavBar/Navbar'
 import config from '../../config'
-import '../../Stylesheets/Profile.css'
+import './Profile.css'
 import TokenService from '../../services/token-service'
 import DogTag from '../LostDogs/Dogtag'
 

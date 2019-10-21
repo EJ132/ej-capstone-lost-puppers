@@ -1,13 +1,13 @@
 /* eslint-disable array-callback-return */
 import React, { Component } from 'react'
-import '../Stylesheets/Main.css'
-import '../Stylesheets/Find.css'
-import '../Stylesheets/DogTags.css'
-import DogTag from './LostDogs/Dogtag'
-import config from '../config'
-import NavBar from './Navbar'
+import '../MainPage/Main.css'
+import './Find.css'
+import './DogTags.css'
+import DogTag from './Dogtag'
+import config from '../../config'
+import NavBar from '../NavBar/Navbar'
 import {Link} from 'react-router-dom'
-import TokenService from '../services/token-service'
+import TokenService from '../../services/token-service'
 
 export default class Find extends Component {
 

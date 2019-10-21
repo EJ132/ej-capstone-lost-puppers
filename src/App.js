@@ -1,13 +1,13 @@
 import React from 'react';
-import './Stylesheets/App.css';
-import Home from './Components/Main'
-import AboutUs from './Components/AboutUs'
-import Find from './Components/Find'
-import Login from './Components/Login'
-import Register from './Components/Register'
-import Profile from './Components/Logged_In/Profile'
+import './App.css';
+import Home from './Components/MainPage/Main'
+import AboutUs from './Components/AboutUs/AboutUs'
+import Find from './Components/LostDogs/Find'
+import Login from './Components/Login/Login'
+import Register from './Components/Register/Register'
+import Profile from './Components/Login/Profile'
 import pupPage from './Components/LostDogs/pupPage'
-import Create from './Components/Create'
+import Create from './Components/Create/Create'
 import {Route, Router} from 'react-router-dom';
 import PrivateRoute from './Components/Utils/PrivateRoute'
 import PublicOnlyRoute from './Components/Utils/PublicOnlyRoute'

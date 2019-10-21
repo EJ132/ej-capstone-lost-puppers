@@ -2,7 +2,7 @@
 
 .banner {
     background: 
-    url("../Images/homebackground.jpg") 
+    url("../../Images/homebackground.jpg") 
     no-repeat
     fixed;
     background-size: 2250px 1500px;
@@ -88,7 +88,7 @@
 .ThirdLayer {
     display: flex;
     background: 
-    url("../Images/homebackground2.jpg") 
+    url("../../Images/homebackground2.jpg") 
     no-repeat
     center
     center
@@ -180,7 +180,7 @@ footer {
 
 .banner {
     background: 
-    url("../Images/homebackground.jpg") 
+    url("../../Images/homebackground.jpg") 
     no-repeat
     center
     center

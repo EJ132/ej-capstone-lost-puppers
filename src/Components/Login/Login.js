@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
-import '../Stylesheets/Main.css'
-import '../Stylesheets/Login.css'
-import paw from '../Images/paw.png'
+import '../MainPage/Main'
+import './Login.css'
+import paw from '../../Images/paw.png'
 import {Link} from 'react-router-dom'
-import AuthApiService from '../services/auth-api-service'
-import TokenService from '../services/token-service'
-import config from '../config'
-import NavBar from './Navbar'
-import history from '../Context/history'
+import AuthApiService from '../../services/auth-api-service'
+import TokenService from '../../services/token-service'
+import config from '../../config'
+import NavBar from '../NavBar/Navbar'
+import history from '../../Context/history'
 
 export default class Login extends Component {
 
