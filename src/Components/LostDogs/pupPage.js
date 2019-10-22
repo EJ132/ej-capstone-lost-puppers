@@ -110,7 +110,7 @@ export default class pupPage extends Component {
 
         let param = this.props.match.params.id
 
-        PupApiService(param, values)
+        PupApiService.editPupComment(param, values)
 
         console.log('Handle edit comment submission')
     }
