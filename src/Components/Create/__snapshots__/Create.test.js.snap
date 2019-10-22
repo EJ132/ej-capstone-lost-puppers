@@ -1,0 +1,175 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Create component renders a Create page by default 1`] = `
+<div>
+  <Navbar />
+  <form
+    className="createPup"
+    onSubmit={[Function]}
+  >
+    <section
+      className="regError"
+      role="alert"
+    />
+    <div>
+      <h2>
+        Create A New Listing
+      </h2>
+      <label>
+        Name
+      </label>
+      <input
+        name="name"
+        placeholder="Max"
+        required={true}
+        type="text"
+      />
+      <label
+        id="imgLabel"
+      >
+        Img (will support img uploading soon)
+      </label>
+      <input
+        name="image"
+        placeholder="https://images.dog.ceo/breeds/mix/cheyenne1.jpg"
+        required={true}
+        type="text"
+      />
+      <label>
+        Zipcode
+      </label>
+      <input
+        name="zipcode"
+        placeholder="90250"
+        required={true}
+        type="number"
+      />
+      <label>
+        Description
+      </label>
+      <input
+        id="descInput"
+        name="description"
+        placeholder="Please be as descriptive as possible"
+        required={true}
+        type="text"
+      />
+      <label>
+        Category
+      </label>
+      <select
+        name="category"
+        required={true}
+      >
+        <option
+          value="Small"
+        >
+          - Small -
+        </option>
+        <option
+          value="Medium"
+        >
+          - Medium -
+        </option>
+        <option
+          value="Large"
+        >
+          - Large -
+        </option>
+      </select>
+      <button
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+  <footer>
+    © EJ Gonzalez 2019
+  </footer>
+</div>
+`;
+
+exports[`Create component renders only the form 1`] = `
+<form
+  className="createPup"
+  onSubmit={[Function]}
+>
+  <section
+    className="regError"
+    role="alert"
+  />
+  <div>
+    <h2>
+      Create A New Listing
+    </h2>
+    <label>
+      Name
+    </label>
+    <input
+      name="name"
+      placeholder="Max"
+      required={true}
+      type="text"
+    />
+    <label
+      id="imgLabel"
+    >
+      Img (will support img uploading soon)
+    </label>
+    <input
+      name="image"
+      placeholder="https://images.dog.ceo/breeds/mix/cheyenne1.jpg"
+      required={true}
+      type="text"
+    />
+    <label>
+      Zipcode
+    </label>
+    <input
+      name="zipcode"
+      placeholder="90250"
+      required={true}
+      type="number"
+    />
+    <label>
+      Description
+    </label>
+    <input
+      id="descInput"
+      name="description"
+      placeholder="Please be as descriptive as possible"
+      required={true}
+      type="text"
+    />
+    <label>
+      Category
+    </label>
+    <select
+      name="category"
+      required={true}
+    >
+      <option
+        value="Small"
+      >
+        - Small -
+      </option>
+      <option
+        value="Medium"
+      >
+        - Medium -
+      </option>
+      <option
+        value="Large"
+      >
+        - Large -
+      </option>
+    </select>
+    <button
+      type="submit"
+    >
+      Submit
+    </button>
+  </div>
+</form>
+`;

@@ -5,6 +5,7 @@ import community from '../../Images/community.png'
 import map from '../../Images/map.png'
 import {Redirect, Link} from "react-router-dom";
 import NavBar from '../NavBar/Navbar'
+import TokenService from '../../services/token-service'
 
 export default class Main extends Component {
 
@@ -15,6 +16,11 @@ export default class Main extends Component {
 
     //redirects the page clicked on
     switchPage = (link) => {
+
+        if (link === 'login' && TokenService.hasAuthToken()){
+            link = 'find'
+        }
+
         this.setState({
             redirect: (!this.state.redirect),
             where: link

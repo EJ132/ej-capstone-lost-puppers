@@ -24,7 +24,7 @@ PATCH Feature:
 
 ![Lost puppers home page](/src/Images/homepageSS.png)
 
-    This application is made for users who have lost their pups/pets and want to make a listing for the
+This application is made for users who have lost their pups/pets and want to make a listing for the
 community to keep an eye out. Users are able to create and login into their personal accounts. They can
 view other listings and leave comments for others to see where the dog was last seen or any other 
 information. Once a pup is created, the owner is still able edit descriptions and name of their dogs
