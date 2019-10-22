@@ -14,7 +14,7 @@ function DogTag(props) {
                     <img src={props.img} alt={props.name}></img>
                     <p>{props.category}</p>
                     <p>{props.description}</p>
-                    <p>Posted: {date.getUTCFullYear()}/{date.getUTCMonth()}/{date.getUTCDate()}</p>
+                    <p>Posted: {date.getUTCFullYear()}/{(date.getUTCMonth() + 1)}/{date.getUTCDate()}</p>
                 </Link>
             </div>
         )
