@@ -4,6 +4,7 @@ import './Profile.css'
 import TokenService from '../../services/token-service'
 import PupApiService from '../../services/thing-api-service'
 import DogTag from '../LostDogs/Dogtag'
+import config from '../../config'
 
 export default class Profile extends Component {
 
@@ -65,7 +66,7 @@ export default class Profile extends Component {
                         {userPost.map(dogCard => {
                             return <DogTag 
                                 name={dogCard.name}
-                                img={dogCard.image}
+                                img={config.IMAGE_URL + dogCard.image}
                                 description={dogCard.description}
                                 category={dogCard.category}
                                 dateCreated={dogCard.date_created}

@@ -7,6 +7,7 @@ import DogTag from './Dogtag'
 import NavBar from '../NavBar/Navbar'
 import {Link} from 'react-router-dom'
 import PupApiService from '../../services/thing-api-service'
+import Map from './Map'
 
 export default class Find extends Component {
 
@@ -77,6 +78,8 @@ export default class Find extends Component {
                 description={dogCard.description}
                 category={dogCard.category}
                 dateCreated={dogCard.date_created}
+                lat={dogCard.lat}
+                long={dogCard.long}
                 id={dogCard.id}
                 key={dogCard.id}
                 owner={dogCard.owner}
@@ -96,6 +99,8 @@ export default class Find extends Component {
             description={dogCard.description}
             category={dogCard.category}
             dateCreated={dogCard.date_created}
+            lat={dogCard.lat}
+            long={dogCard.long}
             id={dogCard.id}
             key={dogCard.id}
             owner={dogCard.owner}
@@ -119,7 +124,10 @@ export default class Find extends Component {
         </select>
     )}
 
-    render() {
+    // MAP INTEGRATION CODE ONLY
+
+    render(){
+        const {dogTags} = this.state
         return (
             <div>
 
@@ -129,40 +137,36 @@ export default class Find extends Component {
                     <div className="sidebar">
                         <h2>Sort</h2>
                             <div>
-                                <form className="dogSizeFilter">
-                                    <label>Dog Size</label>
-                                    <div>
-                                        <input type="radio" name="size" onChange={this.filterResults} value="Small" checked={this.state.filter_name === 'Small'}/>
-                                        <label htmlFor="small">Small</label>
-                                    </div>
-                                    <div>
-                                        <input type="radio" name="size" onChange={this.filterResults} value="Medium" checked={this.state.filter_name === 'Medium'}/>
-                                        <label htmlFor="medium">Medium</label>
-                                    </div>
-                                    <div>
-                                        <input type="radio" name="size" onChange={this.filterResults} value="Large" checked={this.state.filter_name === 'Large'}/>
-                                        <label htmlFor="large">Large</label>
-                                    </div>
-                                    <div>
-                                        <input type="button" id="filterButton" name="size" onClick={this.clearFilter} value="Clear"/>
-                                    </div>
-                                </form>
-                            </div>
-                            <div>
-                                <label className="AreaCode">Area Code</label>
-                                {this.zipOptions()}
-                            </div>
-                            <div className="addPup">
-                                <Link to="/create">+ Add Pup</Link>
-                            </div>
+                            <form className="dogSizeFilter">
+                                <label>Dog Size</label>
+                                <div>
+                                    <input type="radio" name="size" onChange={this.filterResults} value="Small" checked={this.state.filter_name === 'Small'}/>
+                                    <label htmlFor="small">Small</label>
+                                </div>
+                                <div>
+                                    <input type="radio" name="size" onChange={this.filterResults} value="Medium" checked={this.state.filter_name === 'Medium'}/>
+                                    <label htmlFor="medium">Medium</label>
+                                </div>
+                                <div>
+                                    <input type="radio" name="size" onChange={this.filterResults} value="Large" checked={this.state.filter_name === 'Large'}/>
+                                    <label htmlFor="large">Large</label>
+                                </div>
+                                <div>
+                                    <input type="button" id="filterButton" name="size" onClick={this.clearFilter} value="Clear"/>
+                                </div>
+                            </form>
+                        </div>
+                        <div>
+                            <label className="AreaCode">Area Code</label>
+                            {this.zipOptions()}
+                        </div>
+                        <div className="addPup">
+                            <Link to="/create">+ Add Pup</Link>
+                        </div>
                     </div>
 
-                    <div className="lostdogs">
-                        <h2>Lost Pups</h2>
-
-                        <div className="dogContainer">
-                            {this.renderDogTags()}
-                        </div>
+                    <div className="map">
+                        <Map dogTags={this.renderDogTags()}/>
                     </div>
                 </div>
 
@@ -171,7 +175,5 @@ export default class Find extends Component {
         )
     }
 }
-
-
 
 //implement automatic y axis for the messages

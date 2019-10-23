@@ -4,6 +4,7 @@ import Navbar from '../NavBar/Navbar'
 import TokenService from '../../services/token-service'
 import MakeComment from './MakeComment'
 import './pupPage.css'
+import config from '../../config'
 import history from '../../Context/history'
 import AuthApiService from '../../services/auth-api-service'
 import PupApiService from '../../services/thing-api-service'
@@ -116,6 +117,8 @@ export default class pupPage extends Component {
     }
 
     render(){
+        console.log(this.state.specDogTag.image)
+
         return(
             <div className="pupPage_main">
                 <Navbar />
@@ -128,7 +131,7 @@ export default class pupPage extends Component {
                     <div className="pupPage">
                         <form onSubmit={this.handleEditCommentSubmit}>
                             <input id='name' type='text' onChange={this.handleEditComment} name='name' ref='name' value={this.state.specDogTag.name}></input>
-                            <img alt={this.state.specDogTag.description} src={this.state.specDogTag.image}/>
+                            <img alt={this.state.specDogTag.description} src={config.IMAGE_URL + this.state.specDogTag.image}/>
                             <p>{this.state.specDogTag.category}</p>
                             <p id="pupPage_date">Posted: {this.timeRead(this.state.specDogTag.date_created)}</p>
                             <textarea id="EDIT_pupPage_desc" type='text' onChange={this.handleEditComment} name='description' ref='description' value={this.state.specDogTag.description}></textarea>

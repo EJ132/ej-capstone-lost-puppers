@@ -30,14 +30,15 @@ const AuthApiService = {
             : res.json()
         )
   },
-  postPup(user) {
-    return fetch(`${config.API_ENDPOINT}/pups`, {
+  postPup(pup) {
+    const proxyurl = 'https://cors-anywhere.herokuapp.com/';
+    return fetch(`${proxyurl}${config.API_ENDPOINT}/pups`, {
       method: 'POST',
       headers: {
-        'content-type': 'application/json',
-        'authorization': `bearer ${TokenService.getAuthToken()}`
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
+        'Access-Control-Allow-Origin': 'http://localhost:3000'
     },
-    body: JSON.stringify(user),
+    body: pup,
       })
     .then(res =>
         (!res.ok)

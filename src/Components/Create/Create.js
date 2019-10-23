@@ -8,40 +8,53 @@ import history from '../../Context/history'
 export default class Create extends Component {
 
     state = {
-        error: null
+        error: null,
+        selectedFile: null,
     }
 
     createPup = ev => {
         ev.preventDefault()
 
-        const {name, image, category, description, zipcode} = ev.target
-        console.log(name.value, image.value, category.value, description.value, zipcode.value)
+        const {name, image, category, description, zipcode, lat, long} = ev.target
 
         const owner = TokenService.getUserId()
+
+        const formData = new FormData();
+        formData.append('image', this.state.selectedFile, this.state.selectedFile.name);
+        formData.append('name', name.value);
+        formData.append('category', category.value);
+        formData.append('description', description.value);
+        formData.append('zipcode', zipcode.value);
+        formData.append('lat', lat.value);
+        formData.append('long', long.value);
+        formData.append('owner', owner)
 
         this.setState({
             error: null
         })
 
-        AuthApiService.postPup({
-            name: name.value,
-            image: image.value,
-            category: category.value,
-            description: description.value,
-            zipcode: zipcode.value,
-            owner: owner
-        })
+        console.log(formData)
+
+        AuthApiService.postPup(formData)
             .then(pup => {
                 name.value = ''
                 image.value = ''
                 category.value = ''
                 description.value = ''
                 zipcode.value = ''
+                lat.value = ''
+                long.value = ''
             })
             .then(() => history.push('/find'))
             .catch(res => {this.setState({error: res.error})})
 
         console.log(owner)
+    }
+
+    fileUpload = e => {
+        this.setState({
+            selectedFile: e.target.files[0]
+        })
     }
 
 
@@ -54,21 +67,25 @@ export default class Create extends Component {
 
                 <NavBar />
 
-                <form className="createPup" onSubmit={this.createPup}>
+                <form className="createPup" encType='multipart/form-data' onSubmit={this.createPup}>
                     <section className="regError" role='alert'>
                         {error && <p className='red'>{error}</p>}
                     </section>
                     <div>
                         <h2>Create A New Listing</h2>
-                        <label>Name</label>
+                        <label htmlFor='name'>Name</label>
                         <input type='text' name='name' placeholder='Max' required></input>
-                        <label id="imgLabel">Img (will support img uploading soon)</label>
-                        <input type='text' name='image' placeholder='https://images.dog.ceo/breeds/mix/cheyenne1.jpg' required></input>
-                        <label>Zipcode</label>
+                        <label id="imgLabel" htmlFor='image'>Image</label>
+                        <input type='file' name='image' id='image' onChange={(e) => this.fileUpload(e)} required></input>
+                        <label htmlFor='zipcode'>Zipcode</label>
                         <input type='number' name='zipcode' placeholder='90250' required></input>
-                        <label>Description</label>
+                        <label htmlFor='lat'>Lat (Get cordinates on google)</label>
+                        <input type='float' step='0.0000001' name='lat' placeholder='33.8877101' required></input>
+                        <label htmlFor='long'>Long</label>
+                        <input type='float' step='0.0000001' name='long' placeholder='-118.3652527' required></input>
+                        <label htmlFor='description'>Description</label>
                         <input id="descInput" placeholder='Please be as descriptive as possible' name='description' type='text' required></input>
-                        <label>Category</label>
+                        <label htmlFor='category'>Category</label>
                         <select name='category' required>
                             <option value="Small">- Small -</option>
                             <option value="Medium">- Medium -</option>
