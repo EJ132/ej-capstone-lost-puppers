@@ -124,10 +124,7 @@ export default class Find extends Component {
         </select>
     )}
 
-    // MAP INTEGRATION CODE ONLY
-
     render(){
-        const {dogTags} = this.state
         return (
             <div>
 
