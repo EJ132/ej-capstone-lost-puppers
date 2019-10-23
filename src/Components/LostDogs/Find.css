@@ -67,12 +67,18 @@ div > .findContainer {
     padding: 20px;
 }
 
+.map button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
 @media screen and (max-width: 1270px) {
 
     .map {
         padding: 0;
         margin: 0;
-        width: 50%;
+        width: 100%;
         height: 100vh;
     }
 
