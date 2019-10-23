@@ -44,8 +44,6 @@ handleLogoutClick = () => {
     render () {
 
         const{clicked} = this.state
-        console.log(clicked)
-        console.log()
 
         return (
             <div>

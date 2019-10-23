@@ -5,7 +5,6 @@ import paw from '../../../Images/paw.png'
 import TokenService from '../../../services/token-service'
 
 export default function Hamburger(props){
-    console.log(props.status)
     return (
         <div className="hamburger_nav">
         <Link to='/'><img alt="paw" src={paw}></img></Link>
