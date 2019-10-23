@@ -45,11 +45,13 @@ handleLogoutClick = () => {
 
         const{clicked} = this.state
         console.log(clicked)
+        console.log()
 
         return (
             <div>
 
-                <Hamburger display={clicked} click={this.onClick} login={this.renderLoginLink} logout={this.renderLogoutLink}/>
+                <Hamburger display={clicked} click={this.onClick} 
+                status={ TokenService.hasAuthToken() ? <Link onClick={this.handleLogoutClick} to='/'>Logout</Link> : <Link to='/login'>Log in</Link>}/>
 
                 <ul className="navbar">
                     <li><Link to="/">Home</Link></li>

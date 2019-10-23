@@ -5,6 +5,7 @@ import paw from '../../../Images/paw.png'
 import TokenService from '../../../services/token-service'
 
 export default function Hamburger(props){
+    console.log(props.status)
     return (
         <div className="hamburger_nav">
         <Link to='/'><img alt="paw" src={paw}></img></Link>
@@ -19,9 +20,7 @@ export default function Hamburger(props){
                             <li><Link to="/find">Find a Pupper</Link></li>
                             <li><Link to='/help'>Help</Link></li>
                             {TokenService.hasAuthToken() ? <li><Link to='/profile'>Profile</Link></li> : null}
-                            <li>{TokenService.hasAuthToken()
-                                ? props.logout()
-                                : props.login()}</li>
+                            <li>{props.status}</li>
                         </ul>
                     </div>
             </div>
