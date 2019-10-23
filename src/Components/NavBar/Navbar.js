@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import './Navbar.css';
 import paw from '../../Images/paw.png';
 import TokenService from '../../services/token-service'
+import Hamburger from './Hamburger/Hamburger'
 
 export default class Navbar extends Component {
 
@@ -35,15 +36,20 @@ handleLogoutClick = () => {
     }
 
     onClick = () => {
-
+        this.setState({
+            clicked: !this.state.clicked
+        })
     }
 
     render () {
 
+        const{clicked} = this.state
+        console.log(clicked)
 
-        
         return (
             <div>
+
+                <Hamburger display={clicked} click={this.onClick} login={this.renderLoginLink} logout={this.renderLogoutLink}/>
 
                 <ul className="navbar">
                     <li><Link to="/">Home</Link></li>

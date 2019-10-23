@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:900|Asap&display=swap');
+
+.hamburger_nav {
+    display: none;
+}
+
+@media screen and (max-width: 768px){
+    .hamburger_nav{
+        display: initial;
+        width: 100%;
+        height: 40px;
+        background-color: black;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100;
+    }
+
+    .hamburger_nav img {
+        height: 35px;
+        width: 35px;
+        position: absolute;
+        top: 3px;
+        left: 5px;
+    }
+
+    .hamburger {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    }
+
+    .hamburger_clicked {
+    width: 30px;
+    height: 30px;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    }
+
+    .hamburger:hover, .hamburger_clicked {
+        cursor: pointer;
+    }
+
+    .hamburger_clicked .ham_line2 {
+        display: none;
+    }
+
+    .hamburger_clicked .ham_line1, .hamburger_clicked .ham_line3 {
+        z-index: 500;
+    }
+
+    .hamburger_clicked .ham_line1 {
+        transform: translate(0px, 7px) rotate(44deg);
+    }
+
+    .hamburger_clicked .ham_line3 {
+        transform: translate(0px, -8px) rotate(135deg);
+    }
+
+    .ham_line1, .ham_line2, .ham_line3 {
+        height: 4px;
+        width: 100%;
+        background-color: white;
+        border-radius: 5px;
+    }
+
+    .hamburger_links_clear {
+        display: none;
+    }
+
+    .hamburger_links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 300;
+        background-color: rgba(46, 139, 86, 0.897);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .hamburger_links ul {
+        text-decoration: none;
+        list-style-type: none;
+        text-align: center;
+    }
+
+    .hamburger_links li {
+        padding: 8px 0px;
+    }
+
+    .hamburger_links a {
+        text-decoration: none;
+        color: white;
+        font-family: 'Alegreya Sans SC', sans-serif;
+        letter-spacing: 2px;
+        font-size: 2rem;
+    }
+
+    .hamburger_links a:visited {
+        text-decoration: none;
+        color: white;
+        letter-spacing: 2px;
+    }
+}

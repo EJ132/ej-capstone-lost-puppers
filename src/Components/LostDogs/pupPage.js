@@ -138,7 +138,7 @@ export default class pupPage extends Component {
                     :
                     <div className="pupPage">
                         <h2>{this.state.specDogTag.name}</h2>
-                        <img alt={this.state.specDogTag.description} src={this.state.specDogTag.image}/>
+                        <img alt={this.state.specDogTag.description} src={config.IMAGE_URL + this.state.specDogTag.image}/>
                         <p>{this.state.specDogTag.category}</p>
                         <p id="pupPage_desc">{this.state.specDogTag.description}</p>
                         <p id="pupPage_date">Posted: {this.timeRead(this.state.specDogTag.date_created)}</p>
