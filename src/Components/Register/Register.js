@@ -43,10 +43,6 @@ export default class Register extends Component {
              this.setState({ error: res.error })
            })
       }
-
-      seePassword = ev => {
-            console.log(ev)
-      }
       
 
     render(){

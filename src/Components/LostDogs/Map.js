@@ -7,10 +7,7 @@ import './Map.css'
 
 export default function Map(props){
 
-    console.log(props)
     const pupArray = props.dogTags
-    console.log(pupArray)
-    console.log(pupArray.forEach(dog => console.log(dog.props)))
 
     const [viewport, setViewport] = useState({
         latitude: 33.8877101,
@@ -41,8 +38,8 @@ export default function Map(props){
         onViewportChange={viewport => {
             setViewport(viewport)
         }}>
-            {pupArray.map(pup => (
-                <Marker className="markerBtn" key={pup.props.id} latitude={pup.props.lat} longitude={pup.props.long}>
+            {pupArray.map(pup => {
+                return <Marker className="markerBtn" key={pup.props.id} latitude={pup.props.lat} longitude={pup.props.long}>
                     <button onClick={e => {
                         e.preventDefault()
                         setSelectedPup(pup)
@@ -50,7 +47,7 @@ export default function Map(props){
                         <img src={paw} alt="paw"/>
                     </button>
                 </Marker>
-            ))}
+                })}
             {selectedPup ? (
                 <Popup 
                 latitude={selectedPup.props.lat} 
@@ -64,7 +61,6 @@ export default function Map(props){
                         <img src={config.IMAGE_URL + selectedPup.props.img} alt={selectedPup.props.name}></img>
                         <p>{selectedPup.props.category}</p>
                         <p>{selectedPup.props.description}</p>
-                        <p id="popup_date">{selectedPup.props.dateCreated}</p>
                         </Link>
                     </div>
                 </Popup>

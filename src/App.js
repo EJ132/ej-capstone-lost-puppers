@@ -8,6 +8,7 @@ import Register from './Components/Register/Register'
 import Profile from './Components/Login/Profile'
 import pupPage from './Components/LostDogs/pupPage'
 import Create from './Components/Create/Create'
+import Help from './Components/Help/Help'
 import {Route, Router} from 'react-router-dom';
 import PrivateRoute from './Components/Utils/PrivateRoute'
 import PublicOnlyRoute from './Components/Utils/PublicOnlyRoute'
@@ -20,6 +21,7 @@ function App() {
         <Route exact path='/' component={Home}/>
         <Route exact path='/aboutus' component={AboutUs}/>
         <Route exact path='/find' component={Find}/>
+        <Route exact path='/help' component={Help}/>
         <PublicOnlyRoute path='/login' component={Login}/>
         <PublicOnlyRoute exact path='/register' component={Register} />
         <PrivateRoute exact path ='/find/:id' component={pupPage}/>

@@ -1,4 +1,5 @@
 div > .findContainer {
+    margin-top: 40px;
     min-height: 100vh;
     height: auto;
 }

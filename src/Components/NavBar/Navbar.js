@@ -37,6 +37,7 @@ handleLogoutClick = () => {
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/aboutus">About Us</Link></li>
                 <li><Link to="/find">Find a Pupper</Link></li>
+                <li><Link to='/help'>Help</Link></li>
                 {TokenService.hasAuthToken() ? <li><Link to='/profile'>Profile</Link></li> : null}
                 <li>{TokenService.hasAuthToken()
                     ? this.renderLogoutLink()

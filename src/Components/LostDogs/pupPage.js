@@ -92,8 +92,6 @@ export default class pupPage extends Component {
         const value = target.value;
         const name = target.name;
 
-        console.log(value)
-
         this.setState({
             specDogTag: {
                 ...this.state.specDogTag,
@@ -104,20 +102,16 @@ export default class pupPage extends Component {
 
     handleEditCommentSubmit = event => {
         event.preventDefault()
-        console.log(this.state.specDogTag)
 
         const values = JSON.stringify({name: this.state.specDogTag.name, description: this.state.specDogTag.description})
-        console.log(values)
-
+ 
         let param = this.props.match.params.id
 
         PupApiService.editPupComment(param, values)
 
-        console.log('Handle edit comment submission')
     }
 
     render(){
-        console.log(this.state.specDogTag.image)
 
         return(
             <div className="pupPage_main">

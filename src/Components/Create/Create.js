@@ -33,8 +33,6 @@ export default class Create extends Component {
             error: null
         })
 
-        console.log(formData)
-
         AuthApiService.postPup(formData)
             .then(pup => {
                 name.value = ''
@@ -47,8 +45,6 @@ export default class Create extends Component {
             })
             .then(() => history.push('/find'))
             .catch(res => {this.setState({error: res.error})})
-
-        console.log(owner)
     }
 
     fileUpload = e => {

@@ -61,7 +61,7 @@ export default class Profile extends Component {
                     </div>
 
                     <div className="Post">
-                    <h2 id="yourPost">Your Posts</h2>
+                    <h2 id="yourPost">Your Posts ({userPost.length})</h2>
                         <div className="userPosts">
                         {userPost.map(dogCard => {
                             return <DogTag 

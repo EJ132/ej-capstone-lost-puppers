@@ -9,8 +9,11 @@
     list-style-type: none;
     padding: 2px;
     justify-content: flex-end;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
     height: 40px;
+    z-index: 9;
 }
 
 .navbar li {

@@ -1,17 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:900|Asap&display=swap');
+
 .profile_page {
-    min-height: 120vh;
+    margin-top: 40px;
+    min-height: 100vh;
     height: auto;
+    background-color: white;
 }
 
 .profile {
     color: white;
-    padding: 20px;
-    height: 300px;
+    padding: 40px;
+    background-color: #17BEBB;
+    font-family: 'Alegreya Sans SC', sans-serif;
 }
 
 .profile h2 {
     font-size: 4rem;
-    padding: 20px;
     text-decoration: underline;
     letter-spacing: 1px;
 }
@@ -29,8 +33,9 @@
 }
 
 .Post {
+    font-family: 'Asap', sans-serif;
     height: auto;
-    color: white;
+    color: black;
     text-align: center;
 }
 
