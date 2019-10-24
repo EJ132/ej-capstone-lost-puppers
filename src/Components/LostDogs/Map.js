@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import ReactMapGL, {Marker, Popup} from 'react-map-gl';
 import paw from '../../Images/paw.png';
-import config from '../../config';
 import {Link} from 'react-router-dom';
 import './Map.css'
 

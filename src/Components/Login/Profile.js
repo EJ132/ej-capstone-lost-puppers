@@ -4,7 +4,6 @@ import './Profile.css'
 import TokenService from '../../services/token-service'
 import PupApiService from '../../services/thing-api-service'
 import DogTag from '../LostDogs/Dogtag'
-import config from '../../config'
 
 export default class Profile extends Component {
 
