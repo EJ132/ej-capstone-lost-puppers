@@ -18,6 +18,8 @@ export default class pupPage extends Component {
         error: null
     }
 
+    // GET BOTH THE CARD AND THE COMMENTS
+
     componentDidMount() {
 
         let paramId = this.props.match.params.id
@@ -50,6 +52,8 @@ export default class pupPage extends Component {
         history.push('/find')
     }
 
+    // DELETE REQUEST SENT BY OWNER
+
     handleDelete = cardId => {
         PupApiService.deletePup(cardId)
         .then(res => {
@@ -57,6 +61,8 @@ export default class pupPage extends Component {
             return;
             })
     }
+
+    // MAKES TIME LEDGIBLE FOR US TO READ
 
     timeRead = obj => {
         let date = new Date(obj);
@@ -66,6 +72,8 @@ export default class pupPage extends Component {
 
         return `${year}/${month + 1}/${day}`
     }
+
+    // POST REQUEST FOR COMMENT
 
     handleComment = ev => {
         ev.preventDefault();
@@ -82,10 +90,14 @@ export default class pupPage extends Component {
             .catch(res => {this.setState({error: res.error})})
     }
 
+    // SETS THE VIEWBOX OF MESSAGES TO SEE THE LAST MESSAGE
+
     scrollToBottom = messageView => {
         let element = document.getElementById('commentSection')
         element.scrollTop = element.scrollHeight;
     }
+
+    // CHANGES STATE OF COMMENT SO USER CAN SEE WHAT THEY ARE TYPING
 
     handleEditComment = ev => {
         const target = ev.target;
@@ -99,6 +111,8 @@ export default class pupPage extends Component {
             }
         })
     }
+
+    // PATCH REQUEST
 
     handleEditCommentSubmit = event => {
         event.preventDefault()

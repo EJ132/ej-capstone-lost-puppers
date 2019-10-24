@@ -11,18 +11,6 @@ const PupApiService = {
             : res.json()
     )
   },
-  getPup(pupId) {
-    return fetch(`${config.API_ENDPOINT}/pups/${pupId}`, {
-      headers: {
-        'authorization': `basic ${TokenService.getAuthToken()}`
-      },
-    })
-      .then(res =>
-        (!res.ok)
-          ? res.json().then(e => Promise.reject(e))
-          : res.json()
-      )
-  },
   getProfile(){
     return fetch(`${config.API_ENDPOINT}/profile/${TokenService.getUserName()}`, {
       headers: {'authorization': `bearer ${TokenService.getAuthToken()}`},})

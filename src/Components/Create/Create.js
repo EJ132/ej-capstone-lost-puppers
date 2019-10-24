@@ -12,6 +12,8 @@ export default class Create extends Component {
         selectedFile: null,
     }
 
+    //ALL INFO IS APPENDED INTO A FORM DATA TO BE SENT AS FORM DATA (FILE UPLOADING)
+
     createPup = ev => {
         ev.preventDefault()
 

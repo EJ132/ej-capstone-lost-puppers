@@ -17,6 +17,8 @@ export default function Map(props){
 
     const [selectedPup, setSelectedPup] = useState(null);
 
+    // ALLOWS USERS TO PUSH THE 'ESC' BTN WHEN CLICKED ON A CARD
+
     useEffect(() => {
         const listener = e => {
             if(e.key === 'Escape'){

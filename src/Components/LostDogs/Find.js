@@ -19,6 +19,8 @@ export default class Find extends Component {
         filter_zipVal: ''
     }
 
+    // USED FOR THE CATEGORY FILTER
+
     filterResults = ev => {
 
         this.setState({
@@ -30,6 +32,8 @@ export default class Find extends Component {
 
     }
 
+    // USED FOR THE ZIPCODE FILTER
+
     filterByZip = ev => {
 
         this.setState({
@@ -40,6 +44,8 @@ export default class Find extends Component {
         this.renderDogTags()
     }
 
+    // CLEARS THE FILTERS
+
     clearFilter = () => {
         this.setState({
             filter: null,
@@ -48,6 +54,8 @@ export default class Find extends Component {
             filter_zipVal: ''
         })
     }
+
+    // FETCHES INFORMATION NEEDED
 
     componentDidMount() {
         PupApiService.getpups()
@@ -59,6 +67,8 @@ export default class Find extends Component {
 
         return;
     }
+
+    // RENDERS OUT THE DOGS CARDS THAT WILL BE PASSED INTO MAP
 
     renderDogTags() {
 
@@ -107,6 +117,8 @@ export default class Find extends Component {
             />
         });
     }
+
+    // MAKES SURE THAT ZIPCODES DONT REPEAT
 
     zipOptions = () => {
 

@@ -17,6 +17,8 @@ export default class Profile extends Component {
         userPost : []
     }
 
+    //FETCHES THE CARDS AND USER
+
     componentDidMount() {
         PupApiService.getProfile()
             .then(resJSON => {
@@ -27,6 +29,8 @@ export default class Profile extends Component {
                 this.setCards()
             })
     }
+
+    //FILTERS ONLY TO THE CARDS NEEDED(OWNED BY USER)
 
     setCards = () => {
 
