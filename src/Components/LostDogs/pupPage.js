@@ -139,7 +139,7 @@ export default class pupPage extends Component {
                     <div className="pupPage">
                         <form onSubmit={this.handleEditCommentSubmit}>
                             <input id='name' type='text' onChange={this.handleEditComment} name='name' ref='name' value={this.state.specDogTag.name}></input>
-                            <img alt={this.state.specDogTag.description} src={config.IMAGE_URL + this.state.specDogTag.image}/>
+                            <img alt={this.state.specDogTag.description} src={this.state.specDogTag.image}/>
                             <p>{this.state.specDogTag.category}</p>
                             <p id="pupPage_date">Posted: {this.timeRead(this.state.specDogTag.date_created)}</p>
                             <textarea id="EDIT_pupPage_desc" type='text' onChange={this.handleEditComment} name='description' ref='description' value={this.state.specDogTag.description}></textarea>
@@ -152,7 +152,7 @@ export default class pupPage extends Component {
                     :
                     <div className="pupPage">
                         <h2>{this.state.specDogTag.name}</h2>
-                        <img alt={this.state.specDogTag.description} src={config.IMAGE_URL + this.state.specDogTag.image}/>
+                        <img alt={this.state.specDogTag.description} src={this.state.specDogTag.image}/>
                         <p>{this.state.specDogTag.category}</p>
                         <p id="pupPage_desc">{this.state.specDogTag.description}</p>
                         <p id="pupPage_date">Posted: {this.timeRead(this.state.specDogTag.date_created)}</p>

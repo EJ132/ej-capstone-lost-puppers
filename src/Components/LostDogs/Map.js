@@ -60,7 +60,7 @@ export default function Map(props){
                     <div className="popup">
                         <Link to={`/find/${selectedPup.props.id}`}>
                         <h2>{selectedPup.props.name}</h2>
-                        <img src={config.IMAGE_URL + selectedPup.props.img} alt={selectedPup.props.name}></img>
+                        <img src={selectedPup.props.img} alt={selectedPup.props.name}></img>
                         <p>{selectedPup.props.category}</p>
                         <p>{selectedPup.props.description}</p>
                         </Link>

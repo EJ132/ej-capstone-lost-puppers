@@ -70,7 +70,7 @@ export default class Profile extends Component {
                         {userPost.map(dogCard => {
                             return <DogTag 
                                 name={dogCard.name}
-                                img={config.IMAGE_URL + dogCard.image}
+                                img={dogCard.image}
                                 description={dogCard.description}
                                 category={dogCard.category}
                                 dateCreated={dogCard.date_created}
