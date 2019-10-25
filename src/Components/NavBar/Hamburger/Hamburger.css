@@ -2,6 +2,7 @@
 
 .hamburger_nav {
     display: none;
+    transition: 0.5s;
 }
 
 @media screen and (max-width: 768px){
@@ -14,6 +15,7 @@
         top: 0;
         left: 0;
         z-index: 100;
+        transition: 0.5s;
     }
 
     .hamburger_nav img {
@@ -22,6 +24,7 @@
         position: absolute;
         top: 3px;
         left: 5px;
+        transition: 0.5s;
     }
 
     .hamburger {
@@ -33,6 +36,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    transition: 0.4s;
     }
 
     .hamburger_clicked {
@@ -44,26 +48,32 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    transition: 0.5s;
     }
 
     .hamburger:hover, .hamburger_clicked {
         cursor: pointer;
+        transition: 0.5s;
     }
 
     .hamburger_clicked .ham_line2 {
         display: none;
+        transition: 0.5s;
     }
 
     .hamburger_clicked .ham_line1, .hamburger_clicked .ham_line3 {
         z-index: 500;
+        transition: 0.5s;
     }
 
     .hamburger_clicked .ham_line1 {
         transform: translate(0px, 7px) rotate(44deg);
+        transition: 0.5s;
     }
 
     .hamburger_clicked .ham_line3 {
         transform: translate(0px, -8px) rotate(135deg);
+        transition: 0.5s;
     }
 
     .ham_line1, .ham_line2, .ham_line3 {
@@ -71,10 +81,12 @@
         width: 100%;
         background-color: white;
         border-radius: 5px;
+        transition: 0.5s;
     }
 
     .hamburger_links_clear {
         display: none;
+        transition: 0.5s;
     }
 
     .hamburger_links {
@@ -89,16 +101,19 @@
         flex-direction: column;
         justify-content: center;
         text-align: center;
+        transition: 0.5s all;
     }
 
     .hamburger_links ul {
         text-decoration: none;
         list-style-type: none;
         text-align: center;
+        transition: 0.5s;
     }
 
     .hamburger_links li {
         padding: 8px 0px;
+        transition: 0.5s;
     }
 
     .hamburger_links a {
@@ -107,11 +122,13 @@
         font-family: 'Alegreya Sans SC', sans-serif;
         letter-spacing: 2px;
         font-size: 2rem;
+        transition: 0.5s;
     }
 
     .hamburger_links a:visited {
         text-decoration: none;
         color: white;
         letter-spacing: 2px;
+        transition: 0.5s;
     }
 }
