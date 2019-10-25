@@ -38,9 +38,12 @@ You can then go to the find page and find dogs or make your own listing. This si
 of all ages.
 
 For Developers or Any Users:
-    Test Accounts:
-        User_Name: TestUser
-        Password: Testuser123
+
+Test Accounts:
+
+User_Name: TestUser
+
+Password: Testuser123
 
 Technologies used?
 
