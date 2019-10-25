@@ -40,7 +40,7 @@ of all ages.
 For Developers or Any Users:
     Test Accounts:
         User_Name: TestUser
-        Password: TestUser123
+        Password: Testuser123
 
 Technologies used?
 
