@@ -37,6 +37,11 @@ Simple! You start by clicking on the "Get Started" button and sign up! It's not 
 You can then go to the find page and find dogs or make your own listing. This site was made for all people
 of all ages.
 
+For Developers or Any Users:
+    Test Accounts:
+        User_Name: TestUser
+        Password: TestUser123
+
 Technologies used?
 
 Front-End: 
