@@ -67,6 +67,12 @@ div > .createPup {
     font-size: 3rem;
 }
 
+#submitted {
+    font-size: 2rem;
+    margin-top: 10px;
+    color: green;
+}
+
 @media screen and (max-width: 1350px){
     .createPup div {
         right: 5%

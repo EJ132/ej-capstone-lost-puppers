@@ -10,6 +10,7 @@ export default class Create extends Component {
     state = {
         error: null,
         selectedFile: null,
+        submitted: null
     }
 
     //ALL INFO IS APPENDED INTO A FORM DATA TO BE SENT AS FORM DATA (FILE UPLOADING)
@@ -32,7 +33,8 @@ export default class Create extends Component {
         formData.append('owner', owner)
 
         this.setState({
-            error: null
+            error: null,
+            submitted: true
         })
 
         AuthApiService.postPup(formData)
@@ -58,7 +60,7 @@ export default class Create extends Component {
 
     render(){
 
-        const {error} = this.state;
+        const {error, submitted} = this.state;
 
         return(
             <div>
@@ -90,6 +92,7 @@ export default class Create extends Component {
                             <option value="Large">- Large -</option>
                         </select>
                         <button type="submit">Submit</button>
+                        {submitted ? <p id="submitted">Submitted</p> : null}
                     </div>
                 </form>
 
