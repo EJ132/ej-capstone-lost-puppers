@@ -4,6 +4,8 @@ https://lostpuppers.netlify.com/
 
 API Documentation: 
 
+Link: https://github.com/EJ132/ej-capstone-lost-puppers-server
+
 POST Features:
     - '/auth/login' is made for users to login
     - '/pups' is made for users to post a new pup
