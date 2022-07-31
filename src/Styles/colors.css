@@ -31,6 +31,52 @@
   color: #343a40;
 }
 
-.text-link {
-  color: #2890ff;
+.text-primary-link {
+  color: #b1a3ff;
+}
+
+.text-secondary-link {
+  color: #f8f9fa;
+}
+
+/* TEXT HOVER */
+
+.text-primary:hover {
+  color: #0069d9;
+}
+
+.text-secondary:hover {
+  color: #858796;
+}
+
+.text-success:hover {
+  color: #28a745;
+}
+
+.text-danger:hover {
+  color: #dc3545;
+}
+
+.text-warning:hover {
+  color: #ffc107;
+}
+
+.text-info:hover {
+  color: #17a2b8;
+}
+
+.text-light:hover {
+  color: #f8f9fa;
+}
+
+.text-dark:hover {
+  color: #343a40;
+}
+
+.text-primary-link:hover {
+  color: #8670ff;
+}
+
+.text-secondary-link:hover {
+  color: #fff8d2;
 }
