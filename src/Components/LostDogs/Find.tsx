@@ -1,109 +1,74 @@
-/* eslint-disable array-callback-return */
-import React, { Component } from 'react'
-import '../MainPage/Main.css'
-import './Find.css'
-import './DogTags.css'
-import DogTag from './Dogtag'
-import NavBar from '../NavBar/Navbar'
-import {Link} from 'react-router-dom'
-import PupApiService from '../../services/thing-api-service'
-import Map from './Map'
+import * as React from "react";
+import { Link } from "react-router-dom";
 
-export default class Find extends Component {
+import PupApiService from "../../services/thing-api-service";
+import NavBar from "../NavBar/Navbar";
 
-    state = {
-        dogTags: [],
-        filter: null,
-        filter_name: '',
-        filter_zip: null,
-        filter_zipVal: ''
+import DogTag from "./Dogtag";
+import Map from "./Map";
+
+import "../Home/Home.css";
+import "./Find.css";
+import "./DogTags.css";
+
+export default function Find() {
+  const [dogTags, setDogTags] = React.useState([]);
+  const [filter, setFilter] = React.useState(null);
+  const [filterName, setFilterName] = React.useState("");
+  const [filterZip, setFilterZip] = React.useState(null);
+  const [filterZipValue, setFilterZipValue] = React.useState("");
+
+  // CATEGORY FILTER
+  function filterResults(ev: any) {
+    const { value } = ev.target;
+
+    setFilter(true);
+    setFilterName(value);
+
+    renderDogTags();
+  }
+
+  // ZIPCODE FILTER
+  function filterByZip(ev: any) {
+    const { value } = ev.target;
+
+    setFilterZip(true);
+    setFilterZipValue(value);
+
+    renderDogTags();
+  }
+
+  // CLEARS FILTERS
+
+  function clearFilter() {
+    setFilter(false);
+    setFilterName("");
+    setFilterZip(false);
+    setFilterZipValue("");
+  }
+
+  // FETCHES INFORMATION NEEDED TO RENDER THE DOGTAGS
+  React.useEffect(() => {
+    PupApiService.getpups().then((resJSON) => {
+      setDogTags(resJSON);
+    });
+  }, []);
+
+  // RENDERS OUT THE DOGS CARDS THAT WILL BE PASSED INTO MAP
+
+  function renderDogTags() {
+    let filteredResults = dogTags;
+
+    if (filter) {
+      filteredResults = filteredResults.filter(
+        (dogCard) => dogCard.category === filterName
+      );
     }
 
-    // USED FOR THE CATEGORY FILTER
-
-    filterResults = ev => {
-
-        this.setState({
-            filter: true,
-            filter_name: ev.target.value
-        })
-
-        this.renderDogTags()
-
-    }
-
-    // USED FOR THE ZIPCODE FILTER
-
-    filterByZip = ev => {
-
-        this.setState({
-            filter_zip: true,
-            filter_zipVal: ev.target.value
-        })
-
-        this.renderDogTags()
-    }
-
-    // CLEARS THE FILTERS
-
-    clearFilter = () => {
-        this.setState({
-            filter: null,
-            filter_name: '',
-            filter_zip: null,
-            filter_zipVal: ''
-        })
-    }
-
-    // FETCHES INFORMATION NEEDED
-
-    componentDidMount() {
-        PupApiService.getpups()
-        .then(resJSON => {
-            this.setState({
-                dogTags: resJSON
-            })
-        })
-
-        return;
-    }
-
-    // RENDERS OUT THE DOGS CARDS THAT WILL BE PASSED INTO MAP
-
-    renderDogTags() {
-
-        let filteredResults = this.state.dogTags;
-
-        if (this.state.filter) {
-           // eslint-disable-next-line eqeqeq
-           filteredResults = filteredResults.filter(dogCard => dogCard.category == this.state.filter_name)
-        }
-
-        // eslint-disable-next-line eqeqeq
-        if (this.state.filter_zipVal == ''){
-            return filteredResults.map(dogCard => {
-                return <DogTag 
-                name={dogCard.name}
-                img={dogCard.image}
-                description={dogCard.description}
-                category={dogCard.category}
-                dateCreated={dogCard.date_created}
-                lat={dogCard.lat}
-                long={dogCard.long}
-                id={dogCard.id}
-                key={dogCard.id}
-                owner={dogCard.owner}
-                />
-            });
-        }
-
-        if (this.state.filter_zip) {
-            // eslint-disable-next-line eqeqeq
-            filteredResults = filteredResults.filter(dogCard => dogCard.zipcode == this.state.filter_zipVal)
-        }
-
-        return filteredResults.map(dogCard => {
-            return <DogTag 
+    if (!filterByZip) {
+      return filteredResults.map((dogCard) => {
+        return (
+          <DogTag
             name={dogCard.name}
             img={dogCard.image}
             description={dogCard.description}
@@ -114,75 +79,127 @@ export default class Find extends Component {
             id={dogCard.id}
             key={dogCard.id}
             owner={dogCard.owner}
-            />
-        });
+          />
+        );
+      });
     }
 
-    // MAKES SURE THAT ZIPCODES DONT REPEAT
-
-    zipOptions = () => {
-
-        const dogZips = this.state.dogTags.map(dog => dog.zipcode)
-        const newArray = dogZips.filter((elem, i, arr) => {
-            if (arr.indexOf(elem) === i) {
-              return elem
-            }
-          })
-
-        return (
-        <select className="zipCodes" name='category' onChange={this.filterByZip}>
-            {newArray.map(dog => {
-             return <option key={dog} value={dog}>{dog}</option> })}
-        </select>
-    )}
-
-    render(){
-        return (
-            <div>
-
-                <NavBar />
-
-                <div className="findContainer">
-                    <div className="sidebar">
-                        <h2>Sort</h2>
-                            <div>
-                            <form className="dogSizeFilter">
-                                <label>Dog Size</label>
-                                <div>
-                                    <input type="radio" name="size" onChange={this.filterResults} value="Small" checked={this.state.filter_name === 'Small'}/>
-                                    <label htmlFor="small">Small</label>
-                                </div>
-                                <div>
-                                    <input type="radio" name="size" onChange={this.filterResults} value="Medium" checked={this.state.filter_name === 'Medium'}/>
-                                    <label htmlFor="medium">Medium</label>
-                                </div>
-                                <div>
-                                    <input type="radio" name="size" onChange={this.filterResults} value="Large" checked={this.state.filter_name === 'Large'}/>
-                                    <label htmlFor="large">Large</label>
-                                </div>
-                                <div>
-                                    <input type="button" id="filterButton" name="size" onClick={this.clearFilter} value="Clear"/>
-                                </div>
-                            </form>
-                        </div>
-                        <div>
-                            <label className="AreaCode">Area Code</label>
-                            {this.zipOptions()}
-                        </div>
-                        <div className="addPup">
-                            <Link to="/create">+ Add Pup</Link>
-                        </div>
-                    </div>
-
-                    <div className="map">
-                        <Map dogTags={this.renderDogTags()}/>
-                    </div>
-                </div>
-
-                <footer>&#169; EJ Gonzalez 2019</footer>
-            </div>
-        )
+    if (filterZip) {
+      // eslint-disable-next-line eqeqeq
+      filteredResults = filteredResults.filter(
+        (dogCard) => dogCard.zipcode === filterZipValue
+      );
     }
+
+    return filteredResults.map((dogCard) => {
+      return (
+        <DogTag
+          name={dogCard.name}
+          img={dogCard.image}
+          description={dogCard.description}
+          category={dogCard.category}
+          dateCreated={dogCard.date_created}
+          lat={dogCard.lat}
+          long={dogCard.long}
+          id={dogCard.id}
+          key={dogCard.id}
+          owner={dogCard.owner}
+        />
+      );
+    });
+  }
+
+  // MAKES SURE THAT ZIPCODES DONT REPEAT
+
+  function zipOptions() {
+    const dogZips = dogTags.map((dog) => dog.zipcode);
+    const newArray = dogZips.filter((elem, i, arr) => {
+      if (arr.indexOf(elem) === i) {
+        return elem;
+      }
+
+      return null;
+    });
+
+    return (
+      <select className="zipCodes" name="category" onChange={filterByZip}>
+        {newArray.map((dog) => {
+          return (
+            <option key={dog} value={dog}>
+              {dog}
+            </option>
+          );
+        })}
+      </select>
+    );
+  }
+
+  return (
+    <div>
+      <NavBar />
+
+      <div className="findContainer">
+        <div className="sidebar">
+          <h2>Sort</h2>
+          <div>
+            <form className="dogSizeFilter">
+              <label>Dog Size</label>
+              <div>
+                <input
+                  type="radio"
+                  name="size"
+                  onChange={filterResults}
+                  value="Small"
+                  checked={filterName === "Small"}
+                />
+                <label htmlFor="small">Small</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  name="size"
+                  onChange={filterResults}
+                  value="Medium"
+                  checked={filterName === "Medium"}
+                />
+                <label htmlFor="medium">Medium</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  name="size"
+                  onChange={filterResults}
+                  value="Large"
+                  checked={filterName === "Large"}
+                />
+                <label htmlFor="large">Large</label>
+              </div>
+              <div>
+                <input
+                  type="button"
+                  id="filterButton"
+                  name="size"
+                  onClick={clearFilter}
+                  value="Clear"
+                />
+              </div>
+            </form>
+          </div>
+          <div>
+            {/* <label className="AreaCode">Area Code</label> */}
+            {zipOptions()}
+          </div>
+          <div className="addPup">
+            <Link to="/create">+ Add Pup</Link>
+          </div>
+        </div>
+
+        <div className="map">
+          <Map dogTags={dogTags} />
+        </div>
+      </div>
+
+      <footer>&#169; EJ Gonzalez 2019</footer>
+    </div>
+  );
 }
-
-//implement automatic y axis for the messages

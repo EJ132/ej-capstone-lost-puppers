@@ -1,18 +1,20 @@
 // @ts-nocheck
-import "./App.css";
-import Home from "./Components/MainPage/Main";
+import { Route, Routes } from "react-router-dom";
+
 import AboutUs from "./Components/AboutUs/AboutUs";
-import Find from "./Components/LostDogs/Find";
-import Login from "./Components/Login/Login";
-import Register from "./Components/Register/Register";
-import Profile from "./Components/Login/Profile";
-import pupPage from "./Components/LostDogs/pupPage";
 import Create from "./Components/Create/Create";
 import Help from "./Components/Help/Help";
-import { Route, Routes } from "react-router-dom";
+import Home from "./Components/Home/Home";
+import Login from "./Components/Login/Login";
+import Profile from "./Components/Login/Profile";
+import Find from "./Components/LostDogs/Find";
+import pupPage from "./Components/LostDogs/pupPage";
+import Register from "./Components/Register/Register";
 import PrivateRoute from "./Components/Utils/PrivateRoute";
 import PublicOnlyRoute from "./Components/Utils/PublicOnlyRoute";
 import history from "./Context/history";
+
+import "./App.css";
 
 function App() {
   return (

@@ -1,5 +1,7 @@
 import React from "react";
+
 import NavBar from "../NavBar/Navbar";
+
 import "./Help.css";
 
 export default function Help() {
@@ -45,8 +47,8 @@ export default function Help() {
           <li>Go to your profile</li>
           <li>Click on the listing you want to edit</li>
           <li>
-            Click on the "Name" or "Description" of your dog. *note: As of now
-            you can only edit the "Name" or "Description" of your dog
+            {`Click on the "Name" or "Description" of your dog. *note: As of now
+            you can only edit the "Name" or "Description" of your dog`}
           </li>
           <li>Hit save then your post will be updated.</li>
         </ol>
