@@ -14,6 +14,7 @@ import PrivateRoute from "./Components/Utils/PrivateRoute";
 import PublicOnlyRoute from "./Components/Utils/PublicOnlyRoute";
 import history from "./Context/history";
 
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 function App() {

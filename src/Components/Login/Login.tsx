@@ -8,7 +8,7 @@ import history from "../../Context/history";
 import paw from "../../Images/paw.png";
 import AuthApiService from "../../services/auth-api-service";
 import TokenService from "../../services/token-service";
-import NavBar from "../NavBar/Navbar";
+import NavBar from "../NavigationBar/NavigationBar";
 
 import "./Login.css";
 

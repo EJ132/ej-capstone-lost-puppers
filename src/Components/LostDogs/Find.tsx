@@ -2,7 +2,7 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 
 import PupApiService from "../../services/thing-api-service";
-import NavBar from "../NavBar/Navbar";
+import NavBar from "../NavigationBar/NavigationBar";
 
 import DogTag from "./Dogtag";
 import Map from "./Map";

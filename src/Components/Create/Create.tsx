@@ -1,9 +1,11 @@
 import * as React from "react";
-import NavBar from "../NavBar/Navbar";
-import "./Create.css";
-import TokenService from "../../services/token-service";
-import AuthApiService from "../../services/auth-api-service";
+
 import history from "../../Context/history";
+import AuthApiService from "../../services/auth-api-service";
+import TokenService from "../../services/token-service";
+import NavBar from "../NavigationBar/NavigationBar";
+
+import "./Create.css";
 
 export default class Create extends React.Component {
   state = {
@@ -12,7 +14,7 @@ export default class Create extends React.Component {
     submitted: null,
   };
 
-  //ALL INFO IS APPENDED INTO A FORM DATA TO BE SENT AS FORM DATA (FILE UPLOADING)
+  // ALL INFO IS APPENDED INTO A FORM DATA TO BE SENT AS FORM DATA (FILE UPLOADING)
 
   createPup = (ev) => {
     ev.preventDefault();
@@ -81,7 +83,7 @@ export default class Create extends React.Component {
           <div>
             <h2>Create A New Listing</h2>
             <label htmlFor="name">Name</label>
-            <input type="text" name="name" placeholder="Max" required></input>
+            <input type="text" name="name" placeholder="Max" required />
             <label id="imgLabel" htmlFor="image">
               Image
             </label>
@@ -91,14 +93,9 @@ export default class Create extends React.Component {
               id="image"
               onChange={(e) => this.fileUpload(e)}
               required
-            ></input>
+            />
             <label htmlFor="zipcode">Zipcode</label>
-            <input
-              type="number"
-              name="zipcode"
-              placeholder="90250"
-              required
-            ></input>
+            <input type="number" name="zipcode" placeholder="90250" required />
             <label htmlFor="lat">Lat (Get cordinates on google)</label>
             <input
               type="float"
@@ -106,7 +103,7 @@ export default class Create extends React.Component {
               name="lat"
               placeholder="33.8877101"
               required
-            ></input>
+            />
             <label htmlFor="long">Long</label>
             <input
               type="float"
@@ -114,7 +111,7 @@ export default class Create extends React.Component {
               name="long"
               placeholder="-118.3652527"
               required
-            ></input>
+            />
             <label htmlFor="description">Description</label>
             <input
               id="descInput"
@@ -122,7 +119,7 @@ export default class Create extends React.Component {
               name="description"
               type="text"
               required
-            ></input>
+            />
             <label htmlFor="category">Category</label>
             <select name="category" required>
               <option value="Small">- Small -</option>
@@ -140,6 +137,6 @@ export default class Create extends React.Component {
   }
 }
 
-//implementing city feature in future
+// implementing city feature in future
 // <label>City</label>
 // <input type='text' name='city' placeholder='Hawthorne' required></input>

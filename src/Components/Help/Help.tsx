@@ -1,6 +1,6 @@
 import React from "react";
 
-import NavBar from "../NavBar/Navbar";
+import NavBar from "../NavigationBar/NavigationBar";
 
 import "./Help.css";
 

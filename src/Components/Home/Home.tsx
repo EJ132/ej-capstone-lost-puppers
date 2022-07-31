@@ -1,19 +1,18 @@
 import * as React from "react";
-import { Collapse } from "react-bootstrap";
+import Collapse from "react-bootstrap/Collapse";
 import { Link, Navigate } from "react-router-dom";
 
 import community from "../../Images/community.png";
 import dogBone from "../../Images/dogBone.png";
 import map from "../../Images/map.png";
 import TokenService from "../../services/token-service";
-import NavBar from "../NavBar/Navbar";
+import NavBar from "../NavigationBar/NavigationBar";
 
 import "./Home.css";
 
 export default function Home() {
   const [redirect, setRedirect] = React.useState(false);
   const [where, setWhere] = React.useState("");
-  const [show, setShow] = React.useState(false);
 
   // redirects the page clicked on
   function switchPage(link) {
@@ -32,15 +31,13 @@ export default function Home() {
       <NavBar />
 
       <section className="banner">
-        <Collapse in={show}>
-          <div className="Overlay">
-            <h2>Lost Puppers</h2>
-            <p>Find your lost puppy today...</p>
-          </div>
-        </Collapse>
-        <button type="button" onClick={() => switchPage("login")}>
-          Get started
-        </button>
+        <div className="Overlay">
+          <h2>Lost Puppers</h2>
+          <p>Find your lost puppy today...</p>
+          <button type="button" onClick={() => switchPage("login")}>
+            Get started
+          </button>
+        </div>
       </section>
 
       <section className="SecondLayer">

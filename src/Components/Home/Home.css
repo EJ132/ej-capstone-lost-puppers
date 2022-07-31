@@ -1,293 +1,278 @@
 /* FIRST SECTION DESIGN */
 
 .banner {
-    margin-top: 40px;
-    background: 
-    url("../../Images/homebackground.jpg") 
-    no-repeat
-    fixed;
-    background-size: 2250px 1500px;
-    position: relative;
-    width: 100%;
-    height: 95vh;
-    padding: 20px;
-    color: white;
-    overflow: hidden;
+  background: url("../../Images/homebackground.jpg") no-repeat fixed;
+  background-size: 2250px 1500px;
+  position: relative;
+  width: 100%;
+  height: 95vh;
+  padding: 20px;
+  color: white;
+  overflow: hidden;
 }
 
 .Overlay {
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.7);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .banner h2 {
-    margin-top: 200px;
-    margin-left: 100px;
-    font-size: 7rem;
+  margin-top: 200px;
+  margin-left: 100px;
+  font-size: 7rem;
 }
 
 .banner p {
-    font-size: 2rem;
-    margin-left: 150px;
+  font-size: 2rem;
+  margin-left: 150px;
 }
 
 .banner button {
-    width: 200px;
-    height: 75px;
-    background-color: rgb(187, 177, 235);
-    font-size: 1.2rem;
-    font-weight: 600;
-    border-radius: 10px;
-    transition: all 0.9s;
-    border: none;
-    margin-top: 25px;
-    margin-left: 250px;
+  width: 200px;
+  height: 75px;
+  background-color: rgb(187, 177, 235);
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: all 0.9s;
+  border: none;
+  margin-top: 25px;
+  margin-left: 250px;
 }
 
 .banner button:hover {
-    cursor: pointer;
-    background-color: #907DE8; 
-    color: white;
+  cursor: pointer;
+  background-color: #907de8;
+  color: white;
 }
-
 
 /* SECOND SECTION DESIGN */
 
 .SecondLayer {
-    height: auto;
-    color: white;
-    padding: 20px;
-    overflow: hidden;
+  height: auto;
+  color: white;
+  padding: 20px;
+  overflow: hidden;
 }
 
 .three_Icons {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    text-align: center;
-    padding: 0px 20px 50px 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  text-align: center;
+  padding: 0px 20px 50px 20px;
 }
 
 .three_Icons img {
-    padding: 10px;
-    width: 210px;
-    height: 210px;
+  padding: 10px;
+  width: 210px;
+  height: 210px;
 }
 
 .three_Icons p {
-    font-size: 1.5rem;
-    padding: 20px 20px 0px 20px;
+  font-size: 1.5rem;
+  padding: 20px 20px 0px 20px;
 }
 
 /* THIRD SECTION DESIGN */
 
 .ThirdLayer {
-    display: flex;
-    background: 
-    url("../../Images/homebackground2.jpg") 
-    no-repeat
-    center
-    center
+  display: flex;
+  background: url("../../Images/homebackground2.jpg") no-repeat center center
     fixed;
-    background-size: cover;
-    position: relative;
-    width: 100%;
-    height: 800px;
-    padding: 20px;
+  background-size: cover;
+  position: relative;
+  width: 100%;
+  height: 800px;
+  padding: 20px;
 }
 
 .ThirdLayer h2 {
-    margin-top: 175px;
-    font-size: 4rem;
+  margin-top: 175px;
+  font-size: 4rem;
 }
 
 .ThirdLayer p {
-    margin-top: 50px;
-    margin-left: 75px;
-    font-size: 1.2rem;
-    width: 500px;
-    text-align: center;
-    word-spacing: 1px;
-    line-height: 28px;
+  margin-top: 50px;
+  margin-left: 75px;
+  font-size: 1.2rem;
+  width: 500px;
+  text-align: center;
+  word-spacing: 1px;
+  line-height: 28px;
 }
 
 .Third_Overlay {
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.7);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    color: white;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
 }
 
 .Main_lostDogs {
-    margin-top: 100px;
-    width: 45%;
-    height: 300px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+  margin-top: 100px;
+  width: 45%;
+  height: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 .Row1 {
-    position: absolute;
-    top: 0;
-    right: 20px;
-    margin-top: 100px;
+  position: absolute;
+  top: 0;
+  right: 20px;
+  margin-top: 100px;
 }
 
 .Row2 {
-    position: absolute;
-    top: 350px;
-    right: 20px;
-    margin-top: 100px;
+  position: absolute;
+  top: 350px;
+  right: 20px;
+  margin-top: 100px;
 }
 
 .Main_lostDogs div {
-    background-color: #907DE8;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    overflow: hidden;
+  background-color: #907de8;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
-.lostDogCard img{
-    height: 100%;
-    width: 100%;
-    object-fit: fill;
+.lostDogCard img {
+  height: 100%;
+  width: 100%;
+  object-fit: fill;
 }
-
 
 /* FOOTER */
 
 footer {
-    width: 100%;
-    color: white;
-    text-align: center;
-    height: 25px;
+  width: 100%;
+  color: white;
+  text-align: center;
+  height: 25px;
 }
 
 @media screen and (max-width: 768px) {
-    /* FIRST SECTION DESIGN */
+  /* FIRST SECTION DESIGN */
 
-/* FIRST SECTION DESIGN */
+  /* FIRST SECTION DESIGN */
 
-.banner {
-    background: 
-    url("../../Images/homebackground.jpg") 
-    no-repeat
-    center
-    center
-    fixed;
+  .banner {
+    background: url("../../Images/homebackground.jpg") no-repeat center center
+      fixed;
     background-size: cover;
     height: 95vh;
-}
+  }
 
-.Overlay {
+  .Overlay {
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
-}
+  }
 
-.banner h2 {
+  .banner h2 {
     font-size: 3.3rem;
     margin-top: -125px;
     margin-left: 0;
-}
+  }
 
-.banner p {
+  .banner p {
     font-size: 1.2rem;
     margin-top: 10px;
     margin-left: 0;
-}
+  }
 
-.banner button {
+  .banner button {
     width: 175px;
     height: 60px;
     margin-right: auto;
     margin-left: auto;
     margin-top: 15px;
-}
+  }
 
+  /* SECOND SECTION DESIGN */
 
-/* SECOND SECTION DESIGN */
-
-.SecondLayer {
+  .SecondLayer {
     height: auto;
     color: white;
     padding: 20px;
-}
+  }
 
-.three_Icons {
+  .three_Icons {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     text-align: center;
     padding: 0px 20px 50px 20px;
-}
+  }
 
-.three_Icons img {
+  .three_Icons img {
     padding: 10px;
     width: 210px;
     height: 210px;
-}
+  }
 
-.three_Icons p {
+  .three_Icons p {
     font-size: 1rem;
     padding: 10px;
-}
+  }
 
-.three_Icons div {
+  .three_Icons div {
     margin-top: 50px;
-}
+  }
 
-/* THIRD SECTION DESIGN */
+  /* THIRD SECTION DESIGN */
 
-.ThirdLayer {
+  .ThirdLayer {
     height: 825px;
-}
+  }
 
-.ThirdLayer h2 {
+  .ThirdLayer h2 {
     margin-top: 40px;
     font-size: 1.9rem;
     text-align: center;
-}
+  }
 
-.ThirdLayer p {
+  .ThirdLayer p {
     margin-top: 10px;
     margin-left: 0px;
     font-size: 1rem;
     width: 100%;
-}
+  }
 
-.Main_lostDogs {
+  .Main_lostDogs {
     margin-top: 100px;
     width: 100%;
     height: 200px;
     display: flex;
     flex-direction: column;
-}
+  }
 
-.Row1 {
+  .Row1 {
     position: unset;
     margin-top: 10px;
-}
+  }
 
-.Row2 {
+  .Row2 {
     position: unset;
     margin-top: 10px;
-}
+  }
 
-.Main_lostDogs div {
-    background-color: #907DE8;
+  .Main_lostDogs div {
+    background-color: #907de8;
     width: 150px;
     height: 150px;
     border-radius: 50%;
@@ -295,59 +280,58 @@ footer {
     margin-left: auto;
     margin-right: auto;
     margin-top: 0px;
-}
+  }
 
-.mobile {
+  .mobile {
     display: none;
-}
+  }
 
-.lostDogCard img{
+  .lostDogCard img {
     height: 100%;
     width: 100%;
     object-fit: fill;
-}
+  }
 
+  /* FOOTER */
 
-/* FOOTER */
-
-footer {
+  footer {
     width: 100%;
     color: white;
     text-align: center;
     height: 25px;
-}
+  }
 }
 
 /* JUST FOR IPAD */
 
 @media screen and (min-width: 769px) and (max-width: 1240px) {
-    .banner h2 {
-        margin-top: 250px;
-    }
+  .banner h2 {
+    margin-top: 250px;
+  }
 
-    .ThirdLayer h2 {
-        width: 50%;
-        font-size: 2rem;
-        text-align: center;
-    }
+  .ThirdLayer h2 {
+    width: 50%;
+    font-size: 2rem;
+    text-align: center;
+  }
 
-    .ThirdLayer p {
-        margin-left: 5%;
-        width: 40%;
-        margin-top: 20px;
-    }
+  .ThirdLayer p {
+    margin-left: 5%;
+    width: 40%;
+    margin-top: 20px;
+  }
 
-    .Main_lostDogs {
-        margin-top: 175px;
-        height: 200px;
-    }
+  .Main_lostDogs {
+    margin-top: 175px;
+    height: 200px;
+  }
 
-    .Row2 {
-        margin-top: 25px;
-    }
+  .Row2 {
+    margin-top: 25px;
+  }
 
-    .Main_lostDogs div {
-        width: 150px;
-        height: 150px;
-    }
+  .Main_lostDogs div {
+    width: 150px;
+    height: 150px;
+  }
 }

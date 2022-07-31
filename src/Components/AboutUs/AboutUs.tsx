@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 
 import aboutMe from "../../Images/aboutMe.jpg";
-import NavBar from "../NavBar/Navbar";
+import NavBar from "../NavigationBar/NavigationBar";
 
 import "./AboutUs.css";
 

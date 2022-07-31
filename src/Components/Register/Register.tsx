@@ -1,9 +1,11 @@
 import * as React from "react";
-import "../Login/Login.css";
-import paw from "../../Images/paw.png";
-import NavBar from "../NavBar/Navbar";
-import AuthApiService from "../../services/auth-api-service";
+
 import history from "../../Context/history";
+import paw from "../../Images/paw.png";
+import AuthApiService from "../../services/auth-api-service";
+import NavBar from "../NavigationBar/NavigationBar";
+
+import "../Login/Login.css";
 
 export default class Register extends React.Component {
   state = {
@@ -60,28 +62,28 @@ export default class Register extends React.Component {
               name="fullname"
               type="text"
               required
-            ></input>
+            />
             <label>Username</label>
             <input
               placeholder="puppy_lover132"
               name="user_name"
               type="user_name"
               required
-            ></input>
+            />
             <label>Password</label>
             <input
               placeholder="********"
               name="password"
               type="password"
               required
-            ></input>
+            />
             <label>Re-enter Password</label>
             <input
               placeholder="********"
               name="re_enter_password"
               type="password"
               required
-            ></input>
+            />
             <button type="submit">Submit</button>
           </form>
           {/* <p className="validation">{this.handleRegister}</p> */}

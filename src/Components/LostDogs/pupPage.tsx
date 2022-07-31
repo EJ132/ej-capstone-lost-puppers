@@ -1,13 +1,16 @@
 /* eslint-disable eqeqeq */
 // @ts-nocheck
 import React, { Component } from "react";
-import Navbar from "../NavBar/Navbar";
-import TokenService from "../../services/token-service";
-import MakeComment from "./MakeComment";
-import "./pupPage.css";
+
 import history from "../../Context/history";
 import AuthApiService from "../../services/auth-api-service";
 import PupApiService from "../../services/thing-api-service";
+import TokenService from "../../services/token-service";
+import NavigationBar from "../NavigationBar/NavigationBar";
+
+import MakeComment from "./MakeComment";
+
+import "./pupPage.css";
 
 export default class pupPage extends Component {
   state = {
@@ -19,7 +22,7 @@ export default class pupPage extends Component {
   // GET BOTH THE CARD AND THE COMMENTS
 
   componentDidMount() {
-    let paramId = this.props.match.params.id;
+    const paramId = this.props.match.params.id;
 
     PupApiService.getPupCard(paramId).then((resJSON) => {
       this.setState({
@@ -35,8 +38,6 @@ export default class pupPage extends Component {
     });
 
     this.scrollToBottom();
-
-    return;
   }
 
   componentDidUpdate() {
@@ -52,17 +53,16 @@ export default class pupPage extends Component {
   handleDelete = (cardId) => {
     PupApiService.deletePup(cardId).then((res) => {
       history.push("/profile");
-      return;
     });
   };
 
   // MAKES TIME LEDGIBLE FOR US TO READ
 
   timeRead = (obj) => {
-    let date = new Date(obj);
-    let year = date.getUTCFullYear();
-    let month = date.getUTCMonth();
-    let day = date.getUTCDate();
+    const date = new Date(obj);
+    const year = date.getUTCFullYear();
+    const month = date.getUTCMonth();
+    const day = date.getUTCDate();
 
     return `${year}/${month + 1}/${day}`;
   };
@@ -89,16 +89,16 @@ export default class pupPage extends Component {
   // SETS THE VIEWBOX OF MESSAGES TO SEE THE LAST MESSAGE
 
   scrollToBottom = (messageView) => {
-    let element = document.getElementById("commentSection");
+    const element = document.getElementById("commentSection");
     element.scrollTop = element.scrollHeight;
   };
 
   // CHANGES STATE OF COMMENT SO USER CAN SEE WHAT THEY ARE TYPING
 
   handleEditComment = (ev) => {
-    const target = ev.target;
-    const value = target.value;
-    const name = target.name;
+    const { target } = ev;
+    const { value } = target;
+    const { name } = target;
 
     this.setState({
       specDogTag: {
@@ -118,7 +118,7 @@ export default class pupPage extends Component {
       description: this.state.specDogTag.description,
     });
 
-    let param = this.props.match.params.id;
+    const param = this.props.match.params.id;
 
     PupApiService.editPupComment(param, values);
   };
@@ -126,7 +126,7 @@ export default class pupPage extends Component {
   render() {
     return (
       <div className="pupPage_main">
-        <Navbar />
+        <NavigationBar />
 
         <div className="pupContainer">
           <button id="backBtn" onClick={this.goBack}>
@@ -143,7 +143,7 @@ export default class pupPage extends Component {
                   name="name"
                   ref="name"
                   value={this.state.specDogTag.name}
-                ></input>
+                />
                 <img
                   alt={this.state.specDogTag.description}
                   src={this.state.specDogTag.image}
@@ -159,7 +159,7 @@ export default class pupPage extends Component {
                   name="description"
                   ref="description"
                   value={this.state.specDogTag.description}
-                ></textarea>
+                />
                 <button type="submit" id="saveDogTag">
                   Save
                 </button>
@@ -219,7 +219,7 @@ export default class pupPage extends Component {
                 type="text"
                 name="comment"
                 placeholder="Any information on dog"
-              ></input>
+              />
               <button type="submit">Submit</button>
             </form>
           </div>
