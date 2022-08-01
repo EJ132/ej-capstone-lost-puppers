@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Button, Container } from "react-bootstrap";
 import Collapse from "react-bootstrap/Collapse";
 import { Link, Navigate } from "react-router-dom";
 
@@ -32,11 +33,14 @@ export default function Home() {
 
       <section className="banner">
         <div className="Overlay">
-          <h2>Lost Puppers</h2>
-          <p>Find your lost puppy today...</p>
-          <button type="button" onClick={() => switchPage("login")}>
-            Get started
-          </button>
+          <Container fluid className="ps-5 mx-5">
+            <h2>Lost Puppers</h2>
+            <p>Welcome, {`let's`} get started:</p>
+            <Button onClick={() => switchPage("login")} className="me-3 my-2">
+              Lost a Pup
+            </Button>
+            <Button onClick={() => switchPage("login")}>Found a Pup</Button>
+          </Container>
         </div>
       </section>
 

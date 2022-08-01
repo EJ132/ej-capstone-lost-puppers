@@ -30,19 +30,22 @@ export default function NavigationBar() {
   }
 
   return (
-    <Navbar expand="lg" className="vh-10 px-2">
-      <Container fluid className="h-100 p-0 justify-content-center">
+    <Navbar expand="md" className="vh-5 my-3">
+      <Container fluid className="h-100 ps-4 pe-2 justify-content-center">
         <Row className="h-100 w-100">
           {/* ICON AND TITLE */}
-          <Col className="h-100">
+          <Col className="h-100" md={2}>
             <Navbar.Brand className="h-100">
               <Link to="/" className="h-100">
-                <img alt="paw" src={paw} className="h-100 p-2" />
+                <img alt="paw" src={paw} className="h-100" />
               </Link>
             </Navbar.Brand>
           </Col>
 
-          <Col className="h-100 align-items-center d-flex justify-content-end">
+          <Col
+            className="h-100 align-items-center d-flex justify-content-end"
+            md={10}
+          >
             <Nav>
               {/* HOME LINK */}
               <Nav.Link className="mx-1">

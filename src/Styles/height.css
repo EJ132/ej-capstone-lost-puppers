@@ -38,6 +38,10 @@
 
 /* VIDEO HEIGHT */
 
+.vh-5 {
+  height: 5vh;
+}
+
 .vh-10 {
   height: 10vh;
 }
