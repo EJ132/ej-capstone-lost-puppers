@@ -4,7 +4,7 @@ import TokenService from "./token-service";
 
 const PupApiService = {
   getpups() {
-    return fetch(`${config.API_ENDPOINT}/pups`, {
+    return fetch(`${config.DEV_API_ENDPOINT}/pups`, {
       headers: { authorization: `bearer ${TokenService.getAuthToken()}` },
     }).then((res) =>
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
@@ -27,14 +27,14 @@ const PupApiService = {
     });
   },
   getPupCard(param) {
-    return fetch(`${config.API_ENDPOINT}/pups/${param}`, {
+    return fetch(`${config.DEV_API_ENDPOINT}/pups/${param}`, {
       headers: { authorization: `bearer ${TokenService.getAuthToken()}` },
     }).then((res) =>
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
   getPupComments(param) {
-    return fetch(`${config.API_ENDPOINT}/pups/${param}/comments`, {
+    return fetch(`${config.DEV_API_ENDPOINT}/pups/${param}/comments`, {
       headers: { authorization: `bearer ${TokenService.getAuthToken()}` },
     }).then((res) =>
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()

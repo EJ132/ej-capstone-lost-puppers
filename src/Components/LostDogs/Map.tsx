@@ -48,9 +48,9 @@ export default function Map(props) {
         return (
           <Marker
             className="markerBtn"
-            key={pup.props.id}
-            latitude={pup.props.lat}
-            longitude={pup.props.long}
+            key={pup.id}
+            latitude={pup.lat}
+            longitude={pup.long}
           >
             <button
               type="button"
