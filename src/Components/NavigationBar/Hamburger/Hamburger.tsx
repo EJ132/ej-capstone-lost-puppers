@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import paw from "../../../Images/paw.png";
+import paw from "../../../Assets/paw.png";
 import TokenService from "../../../services/token-service";
 
 import "./Hamburger.css";

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import "./DogTags.css";
 
-function DogTag(props) {
+export default function DogTag(props) {
   const date = new Date(props.dateCreated);
 
   return (
@@ -22,5 +22,3 @@ function DogTag(props) {
     </div>
   );
 }
-
-export default DogTag;

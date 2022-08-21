@@ -1,141 +1,134 @@
-div > .findContainer {
-    margin-top: 40px;
-    min-height: 100vh;
-    height: auto;
-}
-
 .findContainer {
-    display: flex;
-    flex-direction: row;
-    padding-left: 10px;
-    padding-right: 10px;
+  display: flex;
+  flex-direction: row;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .sidebar {
-    padding: 150px 20px 20px 20px;
-    width: 18%;
+  padding: 150px 20px 20px 20px;
+  width: 18%;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  text-align: center;
+}
+
+.dogSizeFilter {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dogSizeFilter label {
+  color: #79b877;
+  display: inline-block;
+  padding: 10px;
+}
+
+.AreaCode {
+  font-weight: bold;
+  font-size: 22px;
+  display: block;
+  padding: 20px;
+}
+
+.dogSizeFilter input {
+  display: inline-block;
+}
+
+#filterButton {
+  margin-top: 5px;
+}
+
+#areaCodeInput {
+  text-align: center;
+  padding: 5px;
+  text-decoration: none;
+}
+
+.zipCodes {
+  height: 30px;
+  width: 80px;
+  background-color: white;
+  text-align: center;
+  border-radius: 5px;
+  padding: 7px;
+}
+
+.map {
+  width: 100%;
+  padding: 20px;
+}
+
+.map button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1270px) {
+  .map {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .findContainer {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .sidebar {
+    padding: 20px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     color: white;
     text-align: center;
-}
+    margin-top: 10%;
+  }
 
-.dogSizeFilter {
+  .dogSizeFilter {
     width: 100%;
     padding: 20px;
     display: flex;
     flex-direction: column;
-}
+  }
 
-.dogSizeFilter label {
-    color: #79B877;
+  .dogSizeFilter label {
+    color: #79b877;
     display: inline-block;
     padding: 10px;
-}
+  }
 
-.AreaCode {
+  .AreaCode {
     font-weight: bold;
     font-size: 22px;
     display: block;
     padding: 20px;
-}
+  }
 
-.dogSizeFilter input {
+  .dogSizeFilter input {
     display: inline-block;
-}
+  }
 
-#filterButton {
+  #filterButton {
     margin-top: 5px;
-}
+    background-color: black;
+    border: 1px solid white;
+    color: white;
+    width: 40%;
+    height: 30px;
+  }
 
-#areaCodeInput {
+  #areaCodeInput {
     text-align: center;
     padding: 5px;
     text-decoration: none;
-}
-
-.zipCodes {
-    height: 30px;
-    width: 80px;
-    background-color: white;
-    text-align: center;
-    border-radius: 5px;
-    padding: 7px;
-}
-
-.map {
-    width: 100%;
-    padding: 20px;
-}
-
-.map button {
-    border: none;
-    background: none;
-    cursor: pointer;
-}
-
-@media screen and (max-width: 1270px) {
-
-    .map {
-        padding: 0;
-        margin: 0;
-        width: 100%;
-        height: 100vh;
-    }
-
-    .findContainer {
-        display: flex;
-        flex-direction: column;
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-    
-    .sidebar {
-        padding: 20px;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        color: white;
-        text-align: center;
-        margin-top: 10%;
-    }
-    
-    .dogSizeFilter {
-        width: 100%;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .dogSizeFilter label {
-        color: #79B877;
-        display: inline-block;
-        padding: 10px;
-    }
-    
-    .AreaCode {
-        font-weight: bold;
-        font-size: 22px;
-        display: block;
-        padding: 20px;
-    }
-    
-    .dogSizeFilter input {
-        display: inline-block;
-    }
-    
-    #filterButton {
-        margin-top: 5px;
-        background-color: black;
-        border: 1px solid white;
-        color: white;
-        width: 40%;
-        height: 30px;
-    }
-    
-    #areaCodeInput {
-        text-align: center;
-        padding: 5px;
-        text-decoration: none;
-    }
+  }
 }

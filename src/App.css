@@ -5,8 +5,10 @@
 }
 
 .App {
-  background-color: #000000;
-  height: auto;
-  width: 100%;
-  overflow: hidden;
+  background-color: "white";
+}
+
+.btn-primary {
+  background-color: #c23a57 !important;
+  border-color: #f4511e !important;
 }

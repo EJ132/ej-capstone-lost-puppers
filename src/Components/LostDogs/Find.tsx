@@ -138,63 +138,83 @@ export default function Find() {
     <div>
       <NavBar />
 
-      <div className="findContainer">
-        <div className="sidebar">
-          <h2>Sort</h2>
+      <div
+        className="vh-95 p-5 d-flex flex-row"
+        style={{ backgroundColor: "#f5f5f5" }}
+      >
+        <div className="mx-2 w-25 h-100">
+          <h2
+            style={{
+              fontSize: "3rem",
+              color: "#c23a57",
+              textDecoration: "underline",
+              textUnderlineOffset: 20,
+              marginBottom: 40,
+            }}
+          >
+            Sort
+          </h2>
+
           <div>
-            <form className="dogSizeFilter">
-              <label>Dog Size</label>
+            <form className="w-100 p-2 d-flex flex-column">
               <div>
                 <input
                   type="radio"
                   name="size"
+                  className="me-2"
                   onChange={filterResults}
                   value="Small"
                   checked={filterName === "Small"}
                 />
-                <label htmlFor="small">Small</label>
+                <label>Small</label>
               </div>
-              <div>
+
+              <div className="mt-2">
                 <input
                   type="radio"
                   name="size"
+                  className="me-2"
                   onChange={filterResults}
                   value="Medium"
                   checked={filterName === "Medium"}
                 />
                 <label htmlFor="medium">Medium</label>
               </div>
-              <div>
+
+              <div className="my-2">
                 <input
                   type="radio"
                   name="size"
+                  className="me-2"
                   onChange={filterResults}
                   value="Large"
                   checked={filterName === "Large"}
                 />
                 <label htmlFor="large">Large</label>
               </div>
-              <div>
+
+              <div className="mt-2 d-flex flex-column">
+                <label className="mb-1" style={{ fontWeight: "600" }}>
+                  Zipcode
+                </label>
+                <input type="text" placeholder="ex. 90250" className="w-50" />
+              </div>
+
+              <div className="mt-2">
                 <input
                   type="button"
                   id="filterButton"
                   name="size"
+                  className="w-50 btn btn-primary"
                   onClick={clearFilter}
                   value="Clear"
                 />
               </div>
             </form>
           </div>
-          <div>
-            {/* <label className="AreaCode">Area Code</label> */}
-            {zipOptions()}
-          </div>
-          <div className="addPup">
-            <Link to="/create">+ Add Pup</Link>
-          </div>
         </div>
 
-        <div className="map">
+        <div className="w-100 h-100">
           <Map dogTags={dogTags} />
         </div>
       </div>

@@ -25,8 +25,18 @@ function App() {
         <Route exact path="/aboutus" element={<AboutUs />} />
         <Route exact path="/find" element={<Find />} />
         <Route exact path="/help" element={<Help />} />
-        {/* <PublicOnlyRoute path="/login" element={<Login />} />
-        <PublicOnlyRoute exact path="/register" element={<Register />} />
+
+        <Route
+          exact
+          path="/login"
+          element={
+            <PublicOnlyRoute path="/login">
+              <Login />
+            </PublicOnlyRoute>
+          }
+        />
+
+        {/* <PublicOnlyRoute exact path="/register" element={<Register />} />
         <PrivateRoute exact path="/find/:id" element={<pupPage />} />
         <PrivateRoute exact path="/profile" element={<Profile />} />
         <PrivateRoute exact path="/create" element={<Create />} /> */}

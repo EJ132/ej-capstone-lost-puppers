@@ -74,8 +74,16 @@
   height: 80vh;
 }
 
+.vh-85 {
+  height: 80vh;
+}
+
 .vh-90 {
   height: 90vh;
+}
+
+.vh-95 {
+  height: 95vh;
 }
 
 .vh-100 {

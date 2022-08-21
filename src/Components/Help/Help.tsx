@@ -9,9 +9,25 @@ export default function Help() {
     <div>
       <NavBar />
 
-      <div className="help">
-        <h1>How to get started</h1>
-        <p>Trying to post a lost dog?</p>
+      <div
+        className="vh-95 p-5 d-flex flex-column justify-content-center"
+        style={{ backgroundColor: "#f5f5f5" }}
+      >
+        <h1
+          style={{
+            fontSize: "4rem",
+            color: "#C23A57",
+            textDecoration: "underline",
+            textUnderlineOffset: 20,
+            marginBottom: 40,
+          }}
+        >
+          Help
+        </h1>
+
+        <p style={{ fontSize: "1.5rem", fontWeight: "500" }}>
+          Making your first post
+        </p>
         <ol>
           <li>Sign Up</li>
           <li>Go to the find page</li>
@@ -42,7 +58,8 @@ export default function Help() {
             your profile.
           </li>
         </ol>
-        <p>Trying to edit your posting?</p>
+
+        <p style={{ fontSize: "1.5rem", fontWeight: "500" }}>Edit a post</p>
         <ol>
           <li>Go to your profile</li>
           <li>Click on the listing you want to edit</li>
@@ -52,7 +69,8 @@ export default function Help() {
           </li>
           <li>Hit save then your post will be updated.</li>
         </ol>
-        <p>Trying to delete a posting?</p>
+
+        <p style={{ fontSize: "1.5rem", fontWeight: "500" }}>Delete a post</p>
         <ol>
           <li>Go to your profile</li>
           <li>Click on the listing you want to delete</li>

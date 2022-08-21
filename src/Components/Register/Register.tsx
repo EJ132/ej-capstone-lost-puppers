@@ -1,7 +1,7 @@
 import * as React from "react";
 
+import paw from "../../Assets/paw.png";
 import history from "../../Context/history";
-import paw from "../../Images/paw.png";
 import AuthApiService from "../../services/auth-api-service";
 import NavBar from "../NavigationBar/NavigationBar";
 

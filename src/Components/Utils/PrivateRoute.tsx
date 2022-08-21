@@ -1,10 +1,13 @@
 // @ts-nocheck
-import { Route, Navigate } from "react-router-dom";
+import { Navigate, Route } from "react-router-dom";
+
 import TokenService from "../../services/token-service";
+import Login from "../Login/Login";
 
 export default function PrivateRoute({ element, ...props }) {
   const Component = element;
-  return (
+
+  const result = (
     <Route
       {...props}
       render={(componentProps) =>
@@ -21,4 +24,8 @@ export default function PrivateRoute({ element, ...props }) {
       }
     />
   );
+
+  console.log(result);
+
+  return <Route exact path="/help" element={<Login />} />;
 }

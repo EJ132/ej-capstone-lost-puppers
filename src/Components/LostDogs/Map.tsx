@@ -2,7 +2,7 @@ import * as React from "react";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import { Link } from "react-router-dom";
 
-import paw from "../../Images/paw.png";
+import LostPuppersSVG from "../../Assets/lostpuppers.svg";
 
 import "./Map.css";
 
@@ -10,8 +10,8 @@ export default function Map(props) {
   const pupArray = props.dogTags;
 
   const [viewport, setViewport] = React.useState({
-    latitude: 33.8877101,
-    longitude: -118.3652527,
+    latitude: 0,
+    longitude: 0,
     zoom: 10,
   });
 
@@ -32,11 +32,29 @@ export default function Map(props) {
     };
   }, []);
 
+  React.useEffect(() => {
+    navigator.geolocation.getCurrentPosition((data) => {
+      setViewport({
+        latitude: data.coords.latitude,
+        longitude: data.coords.longitude,
+        zoom: 12,
+      });
+    });
+  }, []);
+
+  if (viewport.latitude === 0) {
+    return (
+      <h1 className="w-100 h-80 text-center d-flex align-items-center justify-content-center">
+        Loading...
+      </h1>
+    );
+  }
+
   return (
     <ReactMapGL
       {...viewport}
       width="100%"
-      height="93%"
+      height="100%"
       mapboxApiAccessToken={
         "pk.eyJ1IjoiZWoxMzIiLCJhIjoiY2syMmR0dnloMXFoNjNjcDQ3emdtNHdvdyJ9.IHpa4a-zkVKnytP0_TCyaw"
       }
@@ -47,19 +65,20 @@ export default function Map(props) {
       {pupArray.map((pup) => {
         return (
           <Marker
-            className="markerBtn"
+            className=""
             key={pup.id}
             latitude={pup.lat}
             longitude={pup.long}
           >
             <button
               type="button"
+              style={{ border: "none", backgroundColor: "transparent" }}
               onClick={(e) => {
                 e.preventDefault();
                 setSelectedPup(pup);
               }}
             >
-              <img src={paw} alt="paw" />
+              <img src={LostPuppersSVG} style={{ width: 64 }} alt="paw" />
             </button>
           </Marker>
         );
