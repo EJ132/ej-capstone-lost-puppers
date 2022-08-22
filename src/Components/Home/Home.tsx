@@ -35,11 +35,7 @@ export default function Home() {
 
       <div className="vh-95" style={{ backgroundColor: "#f5f5f5" }}>
         <div className="lg:mx-5 px-5 d-flex flex-col lg:flex-row justify-content-center align-items-center h-90">
-          <img
-            src={LostPuppersSVG}
-            style={{ minWidth: 600, maxWidth: 600 }}
-            alt="Lost Puppers"
-          />
+          <img src={LostPuppersSVG} className="homeLogo" alt="Lost Puppers" />
 
           <div style={{ flex: 0.8 }}>
             <h1 className="header">Lost Puppers</h1>
