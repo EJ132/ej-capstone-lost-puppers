@@ -12,13 +12,10 @@ export default function AboutUs() {
       <NavBar />
 
       <div
-        className="vh-95 p-5 d-flex flex-row"
+        className="vh-95 flex flex-col lg:flex-row p-5"
         style={{ backgroundColor: "#f5f5f5" }}
       >
-        <div
-          className="d-flex flex-column justify-content-center"
-          style={{ flex: 1 }}
-        >
+        <div className="flex flex-1 flex-col justify-center">
           <h1
             style={{
               fontSize: "4rem",
@@ -40,7 +37,7 @@ export default function AboutUs() {
             together to help each other find their lost pets.
           </p>
 
-          <p style={{ fontSize: "1.5rem" }}>
+          <p className="mt-4" style={{ fontSize: "1.5rem" }}>
             If you ever lose a pup or found one this is the site to come to. It
             is dedicated to helping families reunite with their lost puppies.
             Take your first steps now by signing up and if this site was able to
@@ -49,7 +46,7 @@ export default function AboutUs() {
         </div>
 
         <div
-          className="d-flex align-items-center justify-content-center"
+          className="hidden lg:flex items-center justify-center"
           style={{ width: "40%" }}
         >
           <img
