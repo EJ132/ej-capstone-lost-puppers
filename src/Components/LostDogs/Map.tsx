@@ -44,7 +44,7 @@ export default function Map(props) {
 
   if (viewport.latitude === 0) {
     return (
-      <h1 className="w-100 h-80 text-center d-flex align-items-center justify-content-center">
+      <h1 className="w-100 h-4/6 h1 text-center d-flex align-items-center justify-content-center">
         Loading...
       </h1>
     );

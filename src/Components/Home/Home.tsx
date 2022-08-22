@@ -33,38 +33,39 @@ export default function Home() {
     <div>
       <NavBar />
 
-      <Container fluid className="vh-95" style={{ backgroundColor: "#f5f5f5" }}>
-        <div className="mx-5 px-5 d-flex flex-row justify-content-center align-items-center h-90">
-          <img src={LostPuppersSVG} style={{ width: 600 }} alt="Lost Puppers" />
+      <div className="vh-95" style={{ backgroundColor: "#f5f5f5" }}>
+        <div className="lg:mx-5 px-5 d-flex flex-col lg:flex-row justify-content-center align-items-center h-90">
+          <img
+            src={LostPuppersSVG}
+            style={{ minWidth: 600, maxWidth: 600 }}
+            alt="Lost Puppers"
+          />
 
           <div style={{ flex: 0.8 }}>
-            <h1
-              style={{
-                fontSize: "6.5rem",
-                color: "#c23a57",
-              }}
-            >
-              Lost Puppers
-            </h1>
-            <p style={{ fontSize: "2rem" }}>Welcome, {`let's`} get started:</p>
+            <h1 className="header">Lost Puppers</h1>
+            <p className="subHeader mt-2 md:mt-0">
+              Welcome, {`let's`} get started:
+            </p>
 
-            <button
-              type="button"
-              onClick={() => switchPage("login")}
-              className="me-3 my-2 actionButton"
-            >
-              Lost a Pup
-            </button>
-            <button
-              type="button"
-              className="actionButton"
-              onClick={() => switchPage("login")}
-            >
-              Found a Pup
-            </button>
+            <div className="flex flex-row justify-center md:justify-start items-center mt-2 md:mt-0">
+              <button
+                type="button"
+                onClick={() => switchPage("login")}
+                className="me-3 my-2 actionButton"
+              >
+                Lost a Pup
+              </button>
+              <button
+                type="button"
+                className="actionButton"
+                onClick={() => switchPage("login")}
+              >
+                Found a Pup
+              </button>
+            </div>
           </div>
         </div>
-      </Container>
+      </div>
 
       <section className="SecondLayer">
         <div className="three_Icons">
@@ -95,15 +96,12 @@ export default function Home() {
         </div>
       </section>
 
-      <Container
-        fluid
-        className="p-5 d-flex flex-row align-items-center vh-80"
+      <div
+        className="flex flex-col lg:flex-row items-center section_3_container p-5"
         style={{ backgroundColor: "#f5f5f5" }}
       >
-        <div style={{ flex: 1 }}>
-          <h1 style={{ fontSize: "5rem", color: "#c23a57" }}>
-            Why use Lost Puppers?
-          </h1>
+        <div className="lg:mr-10" style={{ flex: 1 }}>
+          <h1 className="section_3_header">Why use Lost Puppers?</h1>
           <p style={{ fontSize: "1.5rem" }}>
             Lost Puppers is the new way to help you locate your pup that may
             have gotten loose. And if you {`don't`} have a dog maybe you can
@@ -113,32 +111,18 @@ export default function Home() {
           </p>
         </div>
 
-        <div
-          className="d-flex flex-column align-items-center"
-          style={{ flex: 1 }}
-        >
-          <div className="d-flex flex-row w-100 justify-content-center my-5">
+        <div className="flex flex-1 flex-col items-center">
+          <div className="flex flex-row w-100 justify-center my-5">
             <img
               alt="puppy"
               src="https://images.unsplash.com/photo-1523626797181-8c5ae80d40c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-              className="me-5"
-              style={{
-                borderRadius: "50%",
-                width: 250,
-                height: 250,
-                objectFit: "cover",
-              }}
+              className="me-5 roundedPuppy"
             />
 
             <img
               alt="puppy"
               src="https://images.unsplash.com/photo-1491604612772-6853927639ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-              style={{
-                borderRadius: "50%",
-                width: 250,
-                height: 250,
-                objectFit: "cover",
-              }}
+              className="roundedPuppy"
             />
           </div>
 
@@ -146,28 +130,17 @@ export default function Home() {
             <img
               alt="puppy"
               src="https://images.unsplash.com/photo-1504826260979-242151ee45b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-              className="me-5"
-              style={{
-                borderRadius: "50%",
-                width: 250,
-                height: 250,
-                objectFit: "cover",
-              }}
+              className="me-5 roundedPuppy"
             />
 
             <img
               alt="puppy"
               src="https://images.unsplash.com/photo-1558788353-f76d92427f16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-              style={{
-                borderRadius: "50%",
-                width: 250,
-                height: 250,
-                objectFit: "cover",
-              }}
+              className="roundedPuppy"
             />
           </div>
         </div>
-      </Container>
+      </div>
 
       <footer>&#169; EJ Gonzalez 2019</footer>
     </div>

@@ -1,5 +1,3 @@
-import React from "react";
-
 import NavBar from "../NavigationBar/NavigationBar";
 
 import "./Help.css";
@@ -10,7 +8,7 @@ export default function Help() {
       <NavBar />
 
       <div
-        className="vh-95 p-5 d-flex flex-column justify-content-center"
+        className="vh-95 p-5 flex flex-col justify-center"
         style={{ backgroundColor: "#f5f5f5" }}
       >
         <h1
@@ -28,7 +26,7 @@ export default function Help() {
         <p style={{ fontSize: "1.5rem", fontWeight: "500" }}>
           Making your first post
         </p>
-        <ol>
+        <ol className="orderedList">
           <li>Sign Up</li>
           <li>Go to the find page</li>
           <li>Click the add a pup button</li>
@@ -59,8 +57,10 @@ export default function Help() {
           </li>
         </ol>
 
-        <p style={{ fontSize: "1.5rem", fontWeight: "500" }}>Edit a post</p>
-        <ol>
+        <p className="mt-3" style={{ fontSize: "1.5rem", fontWeight: "500" }}>
+          Edit a post
+        </p>
+        <ol className="orderedList">
           <li>Go to your profile</li>
           <li>Click on the listing you want to edit</li>
           <li>
@@ -70,8 +70,10 @@ export default function Help() {
           <li>Hit save then your post will be updated.</li>
         </ol>
 
-        <p style={{ fontSize: "1.5rem", fontWeight: "500" }}>Delete a post</p>
-        <ol>
+        <p className="mt-3" style={{ fontSize: "1.5rem", fontWeight: "500" }}>
+          Delete a post
+        </p>
+        <ol className="orderedList">
           <li>Go to your profile</li>
           <li>Click on the listing you want to delete</li>
           <li>Tap on delete post and it will be removed</li>
